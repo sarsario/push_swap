@@ -6,14 +6,13 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:16 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/02 10:45:31 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/06 18:39:16 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	
 	return (0);
 }

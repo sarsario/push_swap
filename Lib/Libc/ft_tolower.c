@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/06 18:27:39 by osarsari         ###   ########.fr       */
+/*   Created: 2023/04/03 14:22:59 by osarsari          #+#    #+#             */
+/*   Updated: 2023/04/10 11:55:46 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
+#include "../libft.h"
 
-# define PUSH_SWAP_H
-# include "./Lib/libft.h"
+/*
+** Converts the given uppercase letter to its corresponding lowercase letter.
+**
+** c:	The character to convert.
+**
+** Returns:
+** The lowercase equivalent of the given uppercase letter if the given character
+** is an uppercase letter; otherwise, returns the given character unchanged.
+*/
 
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
+}

@@ -2,21 +2,25 @@ LIBFT_PATH = Lib
 LIBFT = $(LIBFT_PATH)/Libft.a
 SRCS = $(wildcard *.c)
 OBJ_DIR = obj
-OBJS = $(OBJ_DIR)/$(SRCS:%.c=%.o)
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
+$(shell mkdir -p $(OBJ_DIR))
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@make -C $(LIBFT_PATH)
+$(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
 
 $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(LIBFT):
+	@make -C $(LIBFT_PATH)
 
 clean:
 	$(RM) $(OBJS)

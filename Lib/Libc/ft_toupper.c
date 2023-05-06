@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/06 18:27:39 by osarsari         ###   ########.fr       */
+/*   Created: 2023/04/03 14:18:09 by osarsari          #+#    #+#             */
+/*   Updated: 2023/04/10 11:56:18 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
+#include "../libft.h"
 
-# define PUSH_SWAP_H
-# include "./Lib/libft.h"
+/*
+** Converts the given lowercase letter to its corresponding uppercase letter.
+**
+** c:	The character to convert.
+**
+** Returns:
+** The uppercase equivalent of the given lowercase letter if the given character
+** is a lowercase letter; otherwise, returns the given character unchanged.
+*/
 
-#endif
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c - ('a' - 'A'));
+	return (c);
+}
