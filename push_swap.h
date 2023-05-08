@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/07 10:21:11 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:14:47 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ typedef struct s_stack
 	t_bool			last;
 }					t_stack;
 
-t_stack	*ft_stacknew(const char *s);
+t_bool	valid_stack(int argc, char **argv);
+void	ft_sort(int argc, char **argv);
+t_stack	*ft_stacknew(int i);
 t_bool	ft_isspace(int c);
 t_bool	ft_isint(const char *s);
 
