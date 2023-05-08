@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:16 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/08 13:26:03 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:43:04 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 1);
 	else
 	{
-		stack_a = create_stack(argc, argv);
+		stack_a = pile_stack(argc, argv);
 		if (!stack_a)
 			ft_putstr_fd("Error\n", 1);
 		else
