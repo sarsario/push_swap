@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacknew.c                                      :+:      :+:    :+:   */
+/*   ft_parse.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 23:33:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/07 10:10:50 by osarsari         ###   ########.fr       */
+/*   Created: 2023/05/07 10:00:29 by osarsari          #+#    #+#             */
+/*   Updated: 2023/05/07 10:00:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_stacknew(const char *s)
+t_bool	ft_isspace(int c)
 {
-	if (!s)
-		return (NULL);
-	if (!ft_isint(s))
-		return (NULL);
+	if (c == 32)
+		return (true);
+	if (c >= 9 && c <= 13)
+		return (true);
+	return (false);
 }

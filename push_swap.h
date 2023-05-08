@@ -6,13 +6,19 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/06 23:34:38 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/07 10:21:11 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 
 # define PUSH_SWAP_H
+# ifndef INT_MAX
+#  define INT_MAX 2147483647
+# endif
+# ifndef INT_MIN
+#  define INT_MIN -2147483648
+# endif
 # include "./Lib/libft.h"
 
 typedef enum e_bool{
@@ -29,9 +35,8 @@ typedef struct s_stack
 	t_bool			last;
 }					t_stack;
 
-t_stack	*ft_stacknew(char *s);
-t_bool	ft_isnbr(const char *s);
+t_stack	*ft_stacknew(const char *s);
+t_bool	ft_isspace(int c);
 t_bool	ft_isint(const char *s);
-t_bool	is_unique(char **argv, int i);
 
 #endif
