@@ -6,13 +6,14 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:47:23 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/08 11:48:15 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:14:54 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort(int argc, char **argv)
+void	ft_sort(t_stack *stack_a)
 {
-	//TODO
+	if (!stack_a)
+		return ;
 }
