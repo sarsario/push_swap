@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 13:55:54 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/06 18:38:36 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:36:30 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	try_putbase_u(size_t nbr, const char *base, int *total_printed)
 {
 	size_t	base_len;
-	int	printed;
+	int		printed;
 
 	printed = 0;
 	base_len = ft_strlen(base);
