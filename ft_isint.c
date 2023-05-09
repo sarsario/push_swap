@@ -6,11 +6,20 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 22:41:29 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/08 13:20:31 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:31:08 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+** Check if a given string represents a valid integer.
+**
+** s: The string to check.
+**
+** Returns:
+** true if the string represents a valid integer, false otherwise.
+*/
 
 t_bool	ft_isint(const char *s)
 {
