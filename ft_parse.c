@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 10:00:29 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 12:33:18 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:04:33 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static t_bool	unique_atoi(char **argv, int i)
 	j = i;
 	while (--j > 0)
 	{
-		if (ft_atoi(argv[j] == ft_atoi(argv[i])))
+		if (ft_atoi(argv[j]) == ft_atoi(argv[i]))
 			return (false);
 	}
 	return (true);

@@ -17,7 +17,7 @@ NAME = libft.a
 AR = ar rcs
 RM = rm -f
 
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 vpath %.c $(LIBC_DIR) $(STRING_MANIP) $(PRINTF_DIR) $(BONUS_DIR)

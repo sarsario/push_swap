@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 12:19:46 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:06:41 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct s_plate
 
 typedef struct s_stack
 {
-	struct s_stack	*top;
-	struct s_stack	*bottom;
+	struct s_plate	*top;
+	struct s_plate	*bottom;
 	size_t			size;
 }					t_stack;
 
@@ -48,7 +48,7 @@ t_bool	ft_push(t_stack *stack, int value);
 t_bool	ft_pop(t_stack *stack, int *value);
 t_bool	ft_move(t_stack *src, t_stack *dst);
 t_bool	ft_swap(t_stack *stack);
-t_bool	ft_rotate(stack_t *stack);
+t_bool	ft_rotate(t_stack *stack);
 t_bool	ft_reverse_rotate(t_stack *stack);
 void	ft_sort(t_stack *stack);
 

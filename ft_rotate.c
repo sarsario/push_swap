@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:57 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 12:35:04 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:06:26 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** true if the rotation was successful, false otherwise.
 */
 
-t_bool	ft_rotate(stack_t *stack)
+t_bool	ft_rotate(t_stack *stack)
 {
 	t_plate	*current;
 	t_plate	*next;
