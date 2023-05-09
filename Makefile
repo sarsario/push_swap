@@ -1,5 +1,5 @@
-LIBFT_PATH = Lib
-LIBFT = $(LIBFT_PATH)/Libft.a
+LIBFT_PATH = ./Lib
+LIBFT = $(LIBFT_PATH)/libft.a
 SRCS = $(wildcard *.c)
 OBJ_DIR = obj
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
@@ -8,13 +8,14 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
+LDFLAGS = -L$(LIBFT_PATH) -lft
 
 $(shell mkdir -p $(OBJ_DIR))
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
 
 $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -33,3 +34,6 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+# $(NAME): $(OBJS) $(LIBFT)
+# 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)

@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 13:06:41 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:10:53 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # ifndef INT_MIN
 #  define INT_MIN -2147483648
 # endif
-# include "./Lib/libft.h"
+# include "Lib/libft.h"
 
 typedef enum e_bool{
 	false,

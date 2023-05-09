@@ -1,6 +1,6 @@
 LIBC_DIR = Libc
 PRINTF_DIR = Printf
-STRING_MANIP = String\ Manipulation
+STRING_MANIP = StringManipulation
 OBJ_DIR = obj
 BONUS_DIR = Bonus
 
