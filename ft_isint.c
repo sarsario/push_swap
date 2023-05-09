@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 22:41:29 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 12:31:08 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:16:43 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_bool	ft_isint(const char *s)
 		l = l * 10 + (*s - '0');
 		if (l - 1 > INT_MAX)
 			return (false);
+		s++;
 	}
 	if (sign == '-')
 		l = -l;
