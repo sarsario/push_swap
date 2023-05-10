@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 11:47:23 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/10 21:09:21 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/10 22:56:00 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_sort(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("Attempting to print stack_b\n");
 	ft_print_stack(stack_b);
 	ft_putchar_fd('\n', 1);
+	ft_printf("Attempting to ft_swap\n");
 	if (ft_swap(stack_a))
 	{
 		ft_putstr_fd("sa\n", 1);
