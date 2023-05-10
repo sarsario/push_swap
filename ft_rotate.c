@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:57 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 13:06:26 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:14:27 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_bool	ft_rotate(t_stack *stack)
 	t_plate	*current;
 	t_plate	*next;
 
-	if (stack->size < 2)
+	if (!stack || stack->size < 2)
 		return (false);
 	current = stack->top;
 	next = stack->top->next;

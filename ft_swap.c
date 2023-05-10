@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:30:13 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 12:39:26 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:07:50 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 t_bool	ft_swap(t_stack *stack)
 {
-	if (stack->size < 2)
+	if (!stack || stack->size < 2)
 		return (false);
 	stack->top->value ^= stack->top->next->value;
 	stack->top->next->value ^= stack->top->value;
