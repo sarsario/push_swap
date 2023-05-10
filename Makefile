@@ -20,6 +20,10 @@ $(NAME): $(OBJS) $(LIBFT)
 $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+debug: CFLAGS += -fsanitize=address -g
+debug: $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
+
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
 
@@ -33,7 +37,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
-
-# $(NAME): $(OBJS) $(LIBFT)
-# 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+.PHONY: all clean fclean re debug
