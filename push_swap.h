@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 13:10:53 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:03:22 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,16 @@ typedef struct s_stack
 t_bool	valid_args(int argc, char **argv);
 t_bool	ft_isint(const char *s);
 t_bool	ft_isspace(int c);
-t_stack	*pile_stack(int argc, char **argv);
+t_stack	*ft_stack_new(int value);
+t_plate	*ft_plate_new(t_plate *next, int value);
+t_stack	*fill_stack(int argc, char **argv);
 t_bool	ft_push(t_stack *stack, int value);
 t_bool	ft_pop(t_stack *stack, int *value);
-t_bool	ft_move(t_stack *src, t_stack *dst);
+t_bool	ft_push_stack(t_stack *src, t_stack *dst);
 t_bool	ft_swap(t_stack *stack);
 t_bool	ft_rotate(t_stack *stack);
 t_bool	ft_reverse_rotate(t_stack *stack);
+void	ft_print_stack(t_stack *stack);
 void	ft_sort(t_stack *stack);
 
 #endif
