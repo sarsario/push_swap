@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 12:27:25 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:03:15 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,18 @@
 t_bool	ft_push(t_stack *stack, int value)
 {
 	t_plate	*new_plate;
+	t_plate	*next_plate;
 
-	new_plate = malloc(sizeof(t_plate));
+	if (!stack)
+		return (false);
+	if (stack->size > 0)
+		next_plate = stack->top;
+	else
+		next_plate = NULL;
+	new_plate = ft_plate_new(next_plate, value);
 	if (!new_plate)
 		return (false);
-	new_plate->value = value;
-	new_plate->prev = NULL;
-	new_plate->next = stack->top;
-	if (stack->top)
+	if (stack->size > 0)
 		stack->top->prev = new_plate;
 	else
 		stack->bottom = new_plate;
@@ -43,31 +47,40 @@ t_bool	ft_push(t_stack *stack, int value)
 }
 
 /*
-** Move the top plate of a source stack to the top of a destination stack.
+** Moves the top plate from the `src` stack to the top of the `dst` stack.
 **
-** src: The source stack.
-** dst: The destination stack.
+** src: The source stack to pop from.
+** dst: The destination stack to push to.
 **
 ** Returns:
-** true if the move was successful, false otherwise.
+** true if the push was successful, false otherwise
+** (e.g. if the source stack is empty).
 */
 
-t_bool	ft_move(t_stack *src, t_stack *dst)
+t_bool	ft_push_stack(t_stack *src, t_stack *dst)
 {
 	t_plate	*top;
 
-	if (src->size < 1)
+	if (!src || !dst || src->size < 1)
 		return (false);
 	top = src->top;
-	src->top = top->next;
-	src->top->prev = NULL;
-	src->size--;
-	top->next = dst->top;
-	top->prev = NULL;
-	if (dst->size == 0)
-		dst->bottom = top;
+	if (src->size > 1)
+		src->top = top->next;
 	else
+		src->top = NULL;
+	if (src->size > 1)
+		src->top->prev = NULL;
+	else
+		src->bottom = NULL;
+	src->size--;
+	if (dst->size > 0)
 		dst->top->prev = top;
+	else
+		dst->bottom = top;
+	if (dst->size > 0)
+		top->next = dst->top;
+	else
+		top->next = NULL;
 	dst->top = top;
 	dst->size++;
 	return (true);
