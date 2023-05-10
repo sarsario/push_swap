@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:33:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/09 12:37:10 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:05:58 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,42 @@ t_bool	ft_pop(t_stack *stack, int *value)
 {
 	t_plate	*plate_to_remove;
 
-	if (!stack->top)
+	if (!stack || stack->size < 1)
 		return (false);
 	*value = stack->top->value;
 	plate_to_remove = stack->top;
-	stack->top = plate_to_remove->next;
-	if (stack->top)
+	if (stack->size > 1)
+		stack->top = plate_to_remove->next;
+	else
+		stack->top = NULL;
+	if (stack->size > 1)
 		stack->top->prev = NULL;
 	else
 		stack->bottom = NULL;
-	free(plate_to_remove);
 	stack->size--;
+	free(plate_to_remove);
 	return (true);
+}
+
+/*
+** Allocates (with malloc(3)) and returns a new stack with empty top and bottom
+** plates. The member variable size is initialized to `value`.
+**
+** Returns:
+** The new stack or NULL if the allocation fails.
+*/
+
+t_stack	*ft_stack_new(int value)
+{
+	t_stack	*new_stack;
+
+	new_stack = malloc(sizeof(t_stack));
+	if (!new_stack)
+		return (NULL);
+	new_stack->top = NULL;
+	new_stack->bottom = NULL;
+	new_stack->size = value;
+	return (new_stack);
 }
 
 /*
@@ -51,19 +75,16 @@ t_bool	ft_pop(t_stack *stack, int *value)
 ** A pointer to the new stack if successful, NULL otherwise.
 */
 
-t_stack	*pile_stack(int argc, char **argv)
+t_stack	*fill_stack(int argc, char **argv)
 {
 	t_stack	*stack;
-	int		i;
 
-	stack = malloc(sizeof(t_stack));
+	stack = ft_stack_new(0);
 	if (!stack)
 		return (NULL);
-	i = argc;
-	stack->size = 0;
-	while (--i > 0)
+	while (--argc > 0)
 	{
-		if (!ft_push(stack, ft_atoi(argv[i])))
+		if (!ft_push(stack, ft_atoi(argv[argc])))
 		{
 			while (ft_pop(stack, &(int){0}))
 				;
