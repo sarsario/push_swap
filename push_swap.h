@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/11 00:25:52 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/11 11:20:16 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ t_bool	ft_swap(t_stack *stack);
 t_bool	ft_rotate(t_stack *stack);
 t_bool	ft_reverse_rotate(t_stack *stack);
 void	ft_print_stack(t_stack *stack);
-t_bool	stack_is_sorted(t_stack *stack);
+t_bool	stack_is_asc(t_stack *stack);
+t_bool	stack_is_dsc(t_stack *stack);
 void	ft_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif
