@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:16 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/10 23:19:47 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:23:39 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 		else
 			ft_sort(stack_a, stack_b);
 	}
-	// system("leaks push_swap");
 	return (0);
 }
+
+// system("leaks push_swap");
