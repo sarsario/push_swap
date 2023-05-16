@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 11:03:32 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/16 23:12:25 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,12 @@ void	run_reverse_rotate(t_stack *stack, char name)
 {
 	if (ft_reverse_rotate(stack))
 		ft_printf("rr%c\n", name);
+}
+
+void	repeat_reverse_rotate(t_stack *stack, int nb, char name)
+{
+	if (!stack)
+		return ;
+	while (nb-- > 0)
+		run_reverse_rotate(stack, name);
 }
