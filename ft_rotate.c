@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:57 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/10 21:14:27 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:56:08 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,10 @@ t_bool	ft_rotate(t_stack *stack)
 		next = next->next;
 	}
 	return (true);
+}
+
+void	run_rotate(t_stack *stack, char name)
+{
+	if (ft_rotate(stack))
+		ft_printf("r%c\n", name);
 }
