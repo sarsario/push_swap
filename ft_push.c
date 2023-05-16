@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 11:10:29 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:06:36 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,16 @@ void	run_push_stack(t_stack *src, t_stack *dst, char name)
 {
 	if (ft_push_stack(src, dst))
 		ft_printf("p%c\n", name);
+}
+
+void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *smallest)
+{
+	int		dist_from_top;
+	int		dist_from_bot;
+	t_plate	*top;
+	t_plate	*bot;
+
+	if (!src || !dst || !smallest)
+		return ;
+	
 }
