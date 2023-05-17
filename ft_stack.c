@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:33:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/17 14:58:16 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:45:15 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,35 @@ t_stack	*fill_stack(int argc, char **argv)
 			return (NULL);
 		}
 	}
+	position_after_fill(stack);
 	return (stack);
+}
+
+/*
+** Updates the position and sorted_position values of the plates in the stack.
+**
+** stack: Pointer to the stack.
+*/
+
+void	position_after_fill(t_stack *stack)
+{
+	t_plate	*plate;
+	int		i;
+
+	if (!stack)
+		return ;
+	plate = stack->top;
+	i = 0;
+	while (plate)
+	{
+		plate->position = i++;
+		plate = plate->next;
+	}
+	i = 0;
+	plate = get_smallest_plate(stack);
+	while (plate)
+	{
+		plate->sorted_position = i++;
+		plate = get_smaller_plate(stack, plate);
+	}
 }
