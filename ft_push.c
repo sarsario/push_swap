@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 23:16:56 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:23:28 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,38 @@ t_bool	ft_push(t_stack *stack, int value)
 		stack->bottom = new_plate;
 	stack->top = new_plate;
 	stack->size++;
+	position_after_push(stack);
 	return (true);
+}
+
+/*
+** Updates the position and sorted_position values of the plates in
+** the stack.
+**
+** stack: Pointer to the stack.
+*/
+
+void	position_after_push(t_stack *stack)
+{
+	t_plate	*plate;
+	int		i;
+
+	if (!stack)
+		return ;
+	plate = stack->top;
+	i = 0;
+	while (plate)
+	{
+		plate->position = i++;
+		plate = plate->next;
+	}
+	i = 0;
+	plate = get_smallest_plate(stack);
+	while (plate)
+	{
+		plate->sorted_position = i++;
+		plate = get_smaller_plate(stack, plate);
+	}
 }
 
 /*
