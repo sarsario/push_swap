@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 12:00:50 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/16 14:21:34 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_bool	ft_isspace(int c);
 t_stack	*ft_stack_new(int value);
 t_plate	*ft_plate_new(t_plate *next, int value);
 t_stack	*fill_stack(int argc, char **argv);
+int		dist_from_top(t_stack *stack, t_plate *plate);
+int		dist_from_bot(t_stack *stack, t_plate *plate);
 t_bool	ft_push(t_stack *stack, int value);
 t_bool	ft_pop(t_stack *stack, int *value);
 t_bool	ft_push_stack(t_stack *src, t_stack *dst);
@@ -55,8 +57,10 @@ t_bool	ft_swap(t_stack *stack);
 void	run_swap(t_stack *stack, char name);
 t_bool	ft_rotate(t_stack *stack);
 void	run_rotate(t_stack *stack, char name);
+void	repeat_rotate(t_stack *stack, int nb);
 t_bool	ft_reverse_rotate(t_stack *stack);
 void	run_reverse_rotate(t_stack *stack, char name);
+void	repeat_reverse_rotate(t_stack *stack, int nb);
 void	ft_print_stack(t_stack *stack);
 t_bool	stack_is_asc(t_stack *stack);
 t_bool	stack_is_dsc(t_stack *stack);

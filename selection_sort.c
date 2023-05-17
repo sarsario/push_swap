@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:55:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 09:45:42 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/16 13:57:13 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	selection_sort(t_stack *stack_a, t_stack *stack_b)
 	biggest = get_biggest_plate(stack_a);
 	while (!stack_is_asc(stack_a) || stack_b->size > 0)
 	{
-		// TODO
+		return ;
 	}
 }
