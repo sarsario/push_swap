@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:33:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/10 21:05:58 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:58:16 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ t_bool	ft_pop(t_stack *stack, int *value)
 
 /*
 ** Allocates (with malloc(3)) and returns a new stack with empty top and bottom
-** plates. The member variable size is initialized to `value`.
+** plates. The size is initialized to 0.
 **
 ** Returns:
 ** The new stack or NULL if the allocation fails.
 */
 
-t_stack	*ft_stack_new(int value)
+t_stack	*ft_stack_new(void)
 {
 	t_stack	*new_stack;
 
@@ -60,7 +60,7 @@ t_stack	*ft_stack_new(int value)
 		return (NULL);
 	new_stack->top = NULL;
 	new_stack->bottom = NULL;
-	new_stack->size = value;
+	new_stack->size = 0;
 	return (new_stack);
 }
 
@@ -79,7 +79,7 @@ t_stack	*fill_stack(int argc, char **argv)
 {
 	t_stack	*stack;
 
-	stack = ft_stack_new(0);
+	stack = ft_stack_new();
 	if (!stack)
 		return (NULL);
 	while (--argc > 0)

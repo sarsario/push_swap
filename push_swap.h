@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/17 14:52:27 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/17 14:58:03 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_bool	ft_isint(const char *s);
 t_bool	ft_isspace(int c);
 int		distance_top(t_stack *stack, t_plate *plate);
 int		distance_bot(t_stack *stack, t_plate *plate);
-t_stack	*ft_stack_new(int value);
+t_stack	*ft_stack_new(void);
 t_plate	*ft_plate_new(t_plate *next, int value);
 t_stack	*fill_stack(int argc, char **argv);
 t_bool	ft_push(t_stack *stack, int value);
