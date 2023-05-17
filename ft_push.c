@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/17 15:50:57 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/17 16:30:18 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,37 +83,42 @@ t_bool	ft_push_stack(t_stack *src, t_stack *dst)
 		top->next = NULL;
 	dst->top = top;
 	dst->size++;
-	update_position(src, dst);
 	return (true);
 }
 
-void	update_position(t_stack *stack_a, t_stack *stack_b)
+/*
+** Attempts to push the top plate of src stack to the top of dst stack.
+** If the move is successfull, print the move's name and update the
+** positions of the plates in both stacks.
+**
+** src:		The source stack to pop from.
+** dst:		The destination stack to push to.
+** name:	The character identifiying the operation.
+*/
+
+void	run_push_stack(t_stack *src, t_stack *dst, char name)
 {
 	t_plate	*plate;
 	int		i;
 
-	if (!stack_a || !stack_b)
-		return ;
-	plate = stack_a->top;
-	i = 0;
-	while (plate)
-	{
-		plate->position = i++;
-		plate = plate->next;
-	}
-	plate = stack_b->top;
-	i = 0;
-	while (plate)
-	{
-		plate->position = i++;
-		plate = plate->next;
-	}
-}
-
-void	run_push_stack(t_stack *src, t_stack *dst, char name)
-{
 	if (ft_push_stack(src, dst))
+	{
 		ft_printf("p%c\n", name);
+		plate = src->top;
+		i = 0;
+		while (plate)
+		{
+			plate->position = i++;
+			plate = plate->next;
+		}
+		plate = dst->top;
+		i = 0;
+		while (plate)
+		{
+			plate->position = i++;
+			plate = plate->next;
+		}
+	}
 }
 
 void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate)
