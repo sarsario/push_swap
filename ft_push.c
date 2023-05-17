@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/17 15:38:02 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:50:57 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ t_bool	ft_push(t_stack *stack, int value)
 		stack->bottom = new_plate;
 	stack->top = new_plate;
 	stack->size++;
-	position_after_push(stack);
 	return (true);
 }
 
