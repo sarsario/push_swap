@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/17 15:23:28 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/17 15:38:02 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,36 +48,6 @@ t_bool	ft_push(t_stack *stack, int value)
 }
 
 /*
-** Updates the position and sorted_position values of the plates in
-** the stack.
-**
-** stack: Pointer to the stack.
-*/
-
-void	position_after_push(t_stack *stack)
-{
-	t_plate	*plate;
-	int		i;
-
-	if (!stack)
-		return ;
-	plate = stack->top;
-	i = 0;
-	while (plate)
-	{
-		plate->position = i++;
-		plate = plate->next;
-	}
-	i = 0;
-	plate = get_smallest_plate(stack);
-	while (plate)
-	{
-		plate->sorted_position = i++;
-		plate = get_smaller_plate(stack, plate);
-	}
-}
-
-/*
 ** Moves the top plate from the `src` stack to the top of the `dst` stack.
 **
 ** src: The source stack to pop from.
@@ -114,7 +84,31 @@ t_bool	ft_push_stack(t_stack *src, t_stack *dst)
 		top->next = NULL;
 	dst->top = top;
 	dst->size++;
+	update_position(src, dst);
 	return (true);
+}
+
+void	update_position(t_stack *stack_a, t_stack *stack_b)
+{
+	t_plate	*plate;
+	int		i;
+
+	if (!stack_a || !stack_b)
+		return ;
+	plate = stack_a->top;
+	i = 0;
+	while (plate)
+	{
+		plate->position = i++;
+		plate = plate->next;
+	}
+	plate = stack_b->top;
+	i = 0;
+	while (plate)
+	{
+		plate->position = i++;
+		plate = plate->next;
+	}
 }
 
 void	run_push_stack(t_stack *src, t_stack *dst, char name)
