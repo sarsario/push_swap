@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:57 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 15:51:36 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:45:14 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,29 @@ t_bool	ft_rotate(t_stack *stack)
 	return (true);
 }
 
-void	run_rotate(t_stack *stack, char name)
+void	ft_ra(t_stack *stack_a, int nb)
 {
-	if (ft_rotate(stack))
-		ft_printf("r%c\n", name);
+	while (nb-- > 0)
+	{
+		if (ft_rotate(stack_a))
+			ft_printf("ra\n");
+	}
 }
 
-void	repeat_rotate(t_stack *stack, int nb, char name)
+void	ft_rb(t_stack *stack_b, int nb)
 {
-	if (!stack)
-		return ;
 	while (nb-- > 0)
-		run_rotate(stack, name);
+	{
+		if (ft_rotate(stack_b))
+			ft_printf("rb\n");
+	}
+}
+
+void	ft_rr(t_stack *stack_a, t_stack *stack_b, int nb)
+{
+	while (nb-- > 0)
+	{
+		if (ft_rotate(stack_a) && ft_rotate(stack_b))
+			ft_printf("rr\n");
+	}
 }
