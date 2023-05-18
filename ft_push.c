@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 17:01:53 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:09:34 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,17 +104,17 @@ void	ft_pb(t_stack *stack_a, t_stack *stack_b)
 	update_position(stack_b);
 }
 
-// void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate)
-// {
-// 	int		dist_from_top;
-// 	int		dist_from_bot;
+void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate)
+{
+	int		dist_from_top;
+	int		dist_from_bot;
 
-// 	if (!src || !dst || !plate)
-// 		return ;
-// 	dist_from_top = distance_top(src, plate);
-// 	dist_from_bot = distance_bot(src, plate);
-// 	if (dist_from_top == -1 || dist_from_bot == -1)
-// 		return ;
-// 	if (dist_from_bot > dist_from_top)
-// 		repeat_rotate(src, dist_from_top, 'a');
-// }
+	if (!src || !dst || !plate)
+		return ;
+	dist_from_top = distance_top(src, plate);
+	dist_from_bot = distance_bot(src, plate);
+	if (dist_from_top == -1 || dist_from_bot == -1)
+		return ;
+	if (dist_from_bot > dist_from_top)
+		ft_ra(src, dist_from_top);
+}

@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:25:24 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 15:58:54 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:13:02 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	sort_two(t_stack *stack)
 	if (stack->size < 2)
 		return ;
 	if (stack->top->value > stack->top->next->value)
-		run_swap(stack, 'a');
+		ft_sa(stack);
 }
 
 /*
@@ -44,12 +44,12 @@ void	sort_three(t_stack *stack)
 	if (stack_is_dsc(stack)
 		|| (stack->top->value > stack->bottom->value
 			&& stack->bottom->value > stack->top->next->value))
-		run_rotate(stack, 'a');
+		ft_ra(stack, 1);
 	if ((stack->top->value < stack->bottom->value
 			&& stack->bottom->value < stack->top->next->value)
 		|| (stack->top->value > stack->bottom->value
 			&& stack->top->value < stack->top->next->value))
-		run_reverse_rotate(stack, 'a');
+		ft_rra(stack, 1);
 	if (stack->top->value > stack->top->next->value
 		&& stack->top->value < stack->bottom->value)
 		return (sort_two(stack));
@@ -75,10 +75,10 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a->size > 3)
 		second_smallest = get_smallest_plate(stack_a);
 	if (stack_a->size > 3)
-		run_cheapest_push(stack_a);
+		run_cheapest_push(stack_a, stack_b, second_smallest);
 	sort_three(stack_a);
-	run_push_stack(stack_b, stack_a, 'a');
-	return (run_push_stack(stack_b, stack_a, 'a'));
+	ft_pa(stack_a, stack_b);
+	return (ft_pa(stack_a, stack_b));
 }
 
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b)

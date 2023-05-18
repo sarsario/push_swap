@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 16:51:54 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:13:11 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ t_stack	*ft_stack_new(void);
 t_plate	*ft_plate_new(t_plate *next, int value);
 void	position_after_fill(t_stack *stack);
 t_stack	*fill_stack(int argc, char **argv);
+t_bool	stack_is_asc(t_stack *stack);
+t_bool	stack_is_dsc(t_stack *stack);
 int		distance_top(t_stack *stack, t_plate *plate);
 int		distance_bot(t_stack *stack, t_plate *plate);
 void	update_position(t_stack *stack);
@@ -70,8 +72,7 @@ void	ft_rra(t_stack *stack_a, int nb);
 void	ft_rrb(t_stack *stack_b, int nb);
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b, int nb);
 void	ft_print_stack(t_stack *stack);
-t_bool	stack_is_asc(t_stack *stack);
-t_bool	stack_is_dsc(t_stack *stack);
+void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate);
 void	sort_two(t_stack *stack);
 void	sort_three(t_stack *stack);
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
