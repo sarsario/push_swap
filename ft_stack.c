@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:33:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 15:54:52 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:15:13 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,29 @@ void	position_after_fill(t_stack *stack)
 	{
 		plate->sorted_position = i++;
 		plate = get_smaller_plate(stack, plate);
+	}
+}
+
+
+/*
+** Updates the position values of the plates in the stack to reflect the
+** current arrangement.
+**
+** stack: Pointer to the stack.
+*/
+
+void	update_position(t_stack *stack)
+{
+	t_plate	*plate;
+	int		i;
+
+	if (!stack)
+		return ;
+	plate = stack->top;
+	i = 0;
+	while (plate)
+	{
+		plate->position = i++;
+		plate = plate->next;
 	}
 }

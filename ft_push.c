@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/17 16:30:18 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:23:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,52 +86,59 @@ t_bool	ft_push_stack(t_stack *src, t_stack *dst)
 	return (true);
 }
 
-/*
-** Attempts to push the top plate of src stack to the top of dst stack.
-** If the move is successfull, print the move's name and update the
-** positions of the plates in both stacks.
-**
-** src:		The source stack to pop from.
-** dst:		The destination stack to push to.
-** name:	The character identifiying the operation.
-*/
-
-void	run_push_stack(t_stack *src, t_stack *dst, char name)
+void	ft_pa(t_stack *stack_a, t_stack *stack_b)
 {
-	t_plate	*plate;
-	int		i;
-
-	if (ft_push_stack(src, dst))
-	{
-		ft_printf("p%c\n", name);
-		plate = src->top;
-		i = 0;
-		while (plate)
-		{
-			plate->position = i++;
-			plate = plate->next;
-		}
-		plate = dst->top;
-		i = 0;
-		while (plate)
-		{
-			plate->position = i++;
-			plate = plate->next;
-		}
-	}
+	if (!ft_push_stack(stack_b, stack_a))
+		return ;
+	ft_printf("pa\n");
+	update_position(stack_a);
+	update_position(stack_b);
 }
 
-void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate)
+void	ft_pb(t_stack *stack_a, t_stack *stack_b)
 {
-	int		dist_from_top;
-	int		dist_from_bot;
-
-	if (!src || !dst || !plate)
+	if (!ft_push_stack(stack_a, stack_b))
 		return ;
-	dist_from_top = distance_top(src, plate);
-	dist_from_bot = distance_bot(src, plate);
-	if (dist_from_top == -1 || dist_from_bot == -1)
-		return ;
-	if (dist_from_bot > dist_from_top)
-		repeat_rotate(src, dist_from_top, 'a');
+	ft_printf("pb\n");
+	update_position(stack_a);
+	update_position(stack_b);
 }
+
+// void	run_push_stack(t_stack *src, t_stack *dst, char name)
+// {
+// 	t_plate	*plate;
+// 	int		i;
+// 	if (ft_push_stack(src, dst))
+// 	{
+// 		ft_printf("p%c\n", name);
+// 		plate = src->top;
+// 		i = 0;
+// 		while (plate)
+// 		{
+// 			plate->position = i++;
+// 			plate = plate->next;
+// 		}
+// 		plate = dst->top;
+// 		i = 0;
+// 		while (plate)
+// 		{
+// 			plate->position = i++;
+// 			plate = plate->next;
+// 		}
+// 	}
+// }
+
+// void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate)
+// {
+// 	int		dist_from_top;
+// 	int		dist_from_bot;
+
+// 	if (!src || !dst || !plate)
+// 		return ;
+// 	dist_from_top = distance_top(src, plate);
+// 	dist_from_bot = distance_bot(src, plate);
+// 	if (dist_from_top == -1 || dist_from_bot == -1)
+// 		return ;
+// 	if (dist_from_bot > dist_from_top)
+// 		repeat_rotate(src, dist_from_top, 'a');
+// }

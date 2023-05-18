@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/17 15:45:15 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:21:39 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,13 @@ void	position_after_fill(t_stack *stack);
 t_stack	*fill_stack(int argc, char **argv);
 int		distance_top(t_stack *stack, t_plate *plate);
 int		distance_bot(t_stack *stack, t_plate *plate);
+void	update_position(t_stack *stack);
 t_bool	ft_push(t_stack *stack, int value);
 t_bool	ft_pop(t_stack *stack, int *value);
 t_bool	ft_push_stack(t_stack *src, t_stack *dst);
-void	run_push_stack(t_stack *src, t_stack *dst, char name);
-void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate);
+void	ft_pa(t_stack *stack_a, t_stack *stack_b);
+void	ft_pb(t_stack *stack_a, t_stack *stack_b);
+// void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate);
 t_bool	ft_swap(t_stack *stack);
 void	run_swap(t_stack *stack, char name);
 t_bool	ft_rotate(t_stack *stack);
