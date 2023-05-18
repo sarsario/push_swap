@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:33:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 16:15:13 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:32:51 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,6 @@ void	position_after_fill(t_stack *stack)
 		plate = get_smaller_plate(stack, plate);
 	}
 }
-
 
 /*
 ** Updates the position values of the plates in the stack to reflect the

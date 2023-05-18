@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 16:21:39 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:31:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ t_bool	ft_pop(t_stack *stack, int *value);
 t_bool	ft_push_stack(t_stack *src, t_stack *dst);
 void	ft_pa(t_stack *stack_a, t_stack *stack_b);
 void	ft_pb(t_stack *stack_a, t_stack *stack_b);
-// void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate);
 t_bool	ft_swap(t_stack *stack);
-void	run_swap(t_stack *stack, char name);
+void	ft_sa(t_stack *stack_a);
+void	ft_sb(t_stack *stack_b);
+void	ft_ss(t_stack *stack_a, t_stack *stack_b);
 t_bool	ft_rotate(t_stack *stack);
 void	run_rotate(t_stack *stack, char name);
 void	repeat_rotate(t_stack *stack, int nb, char name);
