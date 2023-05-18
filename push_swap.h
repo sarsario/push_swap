@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 16:45:39 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 16:51:54 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,9 @@ void	ft_ra(t_stack *stack_a, int nb);
 void	ft_rb(t_stack *stack_b, int nb);
 void	ft_rr(t_stack *stack_a, t_stack *stack_b, int nb);
 t_bool	ft_reverse_rotate(t_stack *stack);
-void	run_reverse_rotate(t_stack *stack, char name);
-void	repeat_reverse_rotate(t_stack *stack, int nb, char name);
+void	ft_rra(t_stack *stack_a, int nb);
+void	ft_rrb(t_stack *stack_b, int nb);
+void	ft_rrr(t_stack *stack_a, t_stack *stack_b, int nb);
 void	ft_print_stack(t_stack *stack);
 t_bool	stack_is_asc(t_stack *stack);
 t_bool	stack_is_dsc(t_stack *stack);
