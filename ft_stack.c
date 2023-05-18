@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:33:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 16:32:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:10:53 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void	update_position(t_stack *stack)
 	t_plate	*plate;
 	int		i;
 
-	if (!stack)
+	if (!stack || stack->size < 1)
 		return ;
 	plate = stack->top;
 	i = 0;
