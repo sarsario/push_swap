@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:25:24 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 11:56:26 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 15:58:54 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,11 @@ void	sort_three(t_stack *stack)
 ** stack_b: An empty stack that can hold some plates to help in the
 ** sorting process.
 */
+
 void	sort_five(t_stack *stack_a, t_stack *stack_b)
 {
-	t_plate *smallest;
-	t_plate *second_smallest;
+	t_plate	*smallest;
+	t_plate	*second_smallest;
 
 	if (!stack_a || !stack_b)
 		return (ft_putstr_fd("Error\n", 1));

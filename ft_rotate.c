@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:57 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 23:13:42 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 15:51:36 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ t_bool	ft_rotate(t_stack *stack)
 		current->value ^= next->value;
 		next->value ^= current->value;
 		current->value ^= next->value;
+		current->position ^= next->position;
+		next->position ^= current->position;
+		current->position ^= next->position;
+		current->sorted_position ^= next->sorted_position;
+		next->sorted_position ^= current->sorted_position;
+		current->sorted_position ^= next->sorted_position;
 		current = next;
 		next = next->next;
 	}
