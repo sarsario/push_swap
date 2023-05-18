@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 16:23:40 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:01:53 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,30 +103,6 @@ void	ft_pb(t_stack *stack_a, t_stack *stack_b)
 	update_position(stack_a);
 	update_position(stack_b);
 }
-
-// void	run_push_stack(t_stack *src, t_stack *dst, char name)
-// {
-// 	t_plate	*plate;
-// 	int		i;
-// 	if (ft_push_stack(src, dst))
-// 	{
-// 		ft_printf("p%c\n", name);
-// 		plate = src->top;
-// 		i = 0;
-// 		while (plate)
-// 		{
-// 			plate->position = i++;
-// 			plate = plate->next;
-// 		}
-// 		plate = dst->top;
-// 		i = 0;
-// 		while (plate)
-// 		{
-// 			plate->position = i++;
-// 			plate = plate->next;
-// 		}
-// 	}
-// }
 
 // void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate)
 // {
