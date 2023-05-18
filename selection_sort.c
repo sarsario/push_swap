@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:55:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 23:56:29 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/17 10:57:05 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	push_phase(t_stack *stack_a, t_stack *stack_b,
 			else
 				run_rotate(stack_a, 'a');
 		}
-		// p1 biggest. Smallest than midpoint ? find smallest between p2 & p3
+		// p1 biggest. If p1 < midpoint, send p1 last.
 		else if ()
 	}
 }
