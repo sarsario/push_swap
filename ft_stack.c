@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:33:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 18:10:53 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:04:39 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	position_after_fill(t_stack *stack)
 	while (plate)
 	{
 		plate->sorted_position = i++;
-		plate = get_smaller_plate(stack, plate);
+		plate = get_bigger_plate(stack, plate);
 	}
 }
 
