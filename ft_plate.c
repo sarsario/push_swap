@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 20:45:54 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/17 14:51:18 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:03:44 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ t_plate	*get_smaller_plate(t_stack *stack, t_plate *plate)
 
 	if (!stack || stack->size < 2)
 		return (NULL);
-	smaller = plate;
+	smaller = get_smallest_plate(stack);
 	next = stack->top;
 	while (next)
 	{
@@ -149,7 +149,7 @@ t_plate	*get_bigger_plate(t_stack *stack, t_plate *plate)
 
 	if (!stack || stack->size < 2)
 		return (NULL);
-	bigger = plate;
+	bigger = get_biggest_plate(stack);
 	next = stack->top;
 	while (next)
 	{
