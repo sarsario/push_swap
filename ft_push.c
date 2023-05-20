@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 17:50:04 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 21:10:20 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,14 +111,14 @@ void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate)
 
 	if (!src || !dst || !plate)
 		return ;
-	dist_from_top = distance_top(src, plate);
-	dist_from_bot = distance_bot(src, plate);
+	dist_from_top = distance_top_rotate(src, plate);
+	dist_from_bot = distance_top_reverse_rotate(src, plate);
 	if (dist_from_top == -1 || dist_from_bot == -1)
 		return ;
 	if (dist_from_bot > dist_from_top)
 		ft_ra(src, dist_from_top);
 	else
-		ft_rra(src, dist_from_bot + 1);
+		ft_rra(src, dist_from_bot);
 	if (!stack_is_asc(src))
 		ft_pb(src, dst);
 }
