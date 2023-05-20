@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:55:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/20 15:34:38 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 20:03:51 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,10 @@ void	smallest_to_top(t_stack *stack_a, t_stack *stack_b, int pivot)
 	if (!stack_a || !stack_b)
 		return ;
 	if (stack_a->top->sorted_position > stack_a->top->next->sorted_position)
-	{
-		if (stack_b->size > 1
-			&& stack_b->top->value < stack_b->top->next->value)
-			ft_ss(stack_a, stack_b);
-		else
-			ft_sa(stack_a);
-	}
+		try_ss_before_sa(stack_a, stack_b);
 	if (stack_a->bottom->sorted_position < pivot
 		&& stack_a->top->sorted_position > stack_a->bottom->sorted_position)
-	{
-		if (stack_b->size > 1
-			&& stack_b->bottom->sorted_position > stack_b->top->sorted_position)
-			ft_rrr(stack_a, stack_b, 1);
-		else
-			ft_rra(stack_a, 1);
-	}
+		try_rrr_before_rra(stack_a, stack_b, 1);
 }
 
 void	second_to_last(t_stack *stack_a, t_stack *stack_b)

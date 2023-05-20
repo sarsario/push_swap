@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 19:59:50 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/20 20:00:11 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 21:08:24 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	try_rr_before_ra(t_stack *stack_a, t_stack *stack_b, int nb)
 			&& stack_b->top->value < stack_b->bottom->value)
 			ft_rr(stack_a, stack_b, 1);
 		else
-			ft_ra(stack_a, stack_b, 1);
+			ft_ra(stack_a, 1);
 	}
 }
 
