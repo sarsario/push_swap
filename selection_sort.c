@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:55:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/20 20:03:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 21:15:26 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,15 @@ void	divide_conquer(t_stack *stack_a, t_stack *stack_b, int pivot)
 		return ;
 	smallest_to_top(stack_a, stack_b, pivot);
 	if (stack_a->top->sorted_position < pivot)
+	{
+		if (stack_b->size > 1
+			&& stack_b->top->value < stack_b->bottom->value)
+			try_rr_before_rb(stack_a, stack_b, 1);
+		else if (stack_b->size > 1
+			&& stack_b->top->value < stack_b->top->next->value)
+			try_ss_before_sb(stack_a, stack_b);
 		return (ft_pb(stack_a, stack_b));
+	}
 	else if (stack_a->top->sorted_position < stack_a->bottom->sorted_position)
 		second_to_last(stack_a, stack_b);
 	else
