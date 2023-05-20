@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:55:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/20 01:35:35 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 12:22:20 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,68 +68,8 @@ void	push_beginning(t_stack *stack_a, t_stack *stack_b, int pivot)
 		second_to_last(stack_a, stack_b);
 	else
 		ft_ra(stack_a, 1);
-	// Top needs to be pushed to stack_b
-	// if (stack_a->top->sorted_position < pivot)
-	// {
-	// 	if (stack_a->top->next->value < stack_a->top->value)
-	// 	{
-	// 		if (stack_a->top->next->value < stack_a->bottom->value)
-	// 		{
-	// 			if (stack_b->size > 1
-	// 				&& stack_b->top->next->value > stack_b->top->value)
-	// 				ft_ss(stack_a, stack_b);
-	// 			else
-	// 				ft_sa(stack_a);
-	// 		}
-	// 	}
-	// 	else if (stack_a->bottom->value < stack_a->top->value)
-	// 	{
-	// 		if (stack_b->size > 1
-	// 			&& stack_b->bottom->value > stack_b->top->value)
-	// 			ft_rrr(stack_a, stack_b, 1);
-	// 		else
-	// 			ft_rra(stack_a, 1);
-	// 	}
-	// 	ft_pb(stack_a, stack_b);
-	// }
-	// Get biggest to the top, then send at bottom
-	// else
-	// {
-		// between top, next and bot, who should be the first at bottom ?
-		// the lowest or biggest ? the lowest I believe.
-		// if next should stay in stack_a, is next lower than bottom ?
-		// if yes, exchange their position
-		// if (stack_a->top->next->value < stack_a->top->value
-		// 	&& stack_a->top->next->sorted_position >= pivot)
-		// {
-		// 	if (stack_b->size > 1
-		// 		&& stack_b->top->next->value > stack_b->top->value)
-		// 		ft_ss(stack_a, stack_b);
-		// 	else
-		// 		ft_sa(stack_a);
-		// }
-		// if top smaller than bot and bot >= pivot. put top above bottom
-	// 	if (stack_a->bottom->sorted_position >= pivot
-	// 		&& stack_a->bottom->value < stack_a->top->value)
-	// 	{
-	// 		if (stack_b->size > 1
-	// 			&& stack_b->bottom->value > stack_b->top->value)
-	// 			ft_rrr(stack_a, stack_b, 1);
-	// 		else
-	// 			ft_rra(stack_a, 1);
-	// 		if (stack_b->size > 1
-	// 			&& stack_b->top->next->value > stack_b->top->value)
-	// 			ft_ss(stack_a, stack_b);
-	// 		else
-	// 			ft_sa(stack_a);
-	// 	}
-	// 	if (stack_b->size > 1
-	// 		&& stack_b->top->value < stack_b->bottom->value)
-	// 		ft_rr(stack_a, stack_b, 1);
-	// 	else
-	// 		ft_ra(stack_a, 1);
-	// }
 }
+
 void	selection_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	nb_plates;
