@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:55:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/20 12:22:20 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 15:34:38 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	second_to_last(t_stack *stack_a, t_stack *stack_b)
 	ft_ra(stack_a, 1);
 }
 
-void	push_beginning(t_stack *stack_a, t_stack *stack_b, int pivot)
+void	divide_conquer(t_stack *stack_a, t_stack *stack_b, int pivot)
 {
 	if (!stack_a || !stack_b)
 		return ;
@@ -81,7 +81,7 @@ void	selection_sort(t_stack *stack_a, t_stack *stack_b)
 		stack_a->size, nb_plates, nb_plates / 2);
 	while (stack_a->size > stack_b->size + 1)
 	{
-		push_beginning(stack_a, stack_b, nb_plates / 2);
+		divide_conquer(stack_a, stack_b, nb_plates / 2);
 		ft_printf("\nStack_a:\n");
 		ft_print_stack(stack_a);
 		ft_printf("\nStack_b:\n");

@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/18 17:13:11 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 12:39:26 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	position_after_fill(t_stack *stack);
 t_stack	*fill_stack(int argc, char **argv);
 t_bool	stack_is_asc(t_stack *stack);
 t_bool	stack_is_dsc(t_stack *stack);
-int		distance_top(t_stack *stack, t_plate *plate);
-int		distance_bot(t_stack *stack, t_plate *plate);
+int		distance_top_rotate(t_stack *stack, t_plate *plate);
+int		distance_top_reverse_rotate(t_stack *stack, t_plate *plate);
 void	update_position(t_stack *stack);
 t_bool	ft_push(t_stack *stack, int value);
 t_bool	ft_pop(t_stack *stack, int *value);
