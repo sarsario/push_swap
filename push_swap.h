@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/20 12:39:26 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 20:01:29 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,20 @@ t_bool	ft_swap(t_stack *stack);
 void	ft_sa(t_stack *stack_a);
 void	ft_sb(t_stack *stack_b);
 void	ft_ss(t_stack *stack_a, t_stack *stack_b);
+void	try_ss_before_sa(t_stack *stack_a, t_stack *stack_b);
+void	try_ss_before_sb(t_stack *stack_a, t_stack *stack_b);
 t_bool	ft_rotate(t_stack *stack);
 void	ft_ra(t_stack *stack_a, int nb);
 void	ft_rb(t_stack *stack_b, int nb);
 void	ft_rr(t_stack *stack_a, t_stack *stack_b, int nb);
+void	try_rr_before_ra(t_stack *stack_a, t_stack *stack_b, int nb);
+void	try_rr_before_rb(t_stack *stack_a, t_stack *stack_b, int nb);
 t_bool	ft_reverse_rotate(t_stack *stack);
 void	ft_rra(t_stack *stack_a, int nb);
 void	ft_rrb(t_stack *stack_b, int nb);
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b, int nb);
+void	try_rrr_before_rra(t_stack *stack_a, t_stack *stack_b, int nb);
+void	try_rrr_before_rrb(t_stack *stack_a, t_stack *stack_b, int nb);
 void	ft_print_stack(t_stack *stack);
 void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate);
 void	sort_two(t_stack *stack);
