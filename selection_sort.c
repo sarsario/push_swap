@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:55:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/20 21:15:26 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/21 04:25:51 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ void	smallest_to_top(t_stack *stack_a, t_stack *stack_b, int pivot)
 {
 	if (!stack_a || !stack_b)
 		return ;
-	if (stack_a->top->sorted_position > stack_a->top->next->sorted_position)
-		try_ss_before_sa(stack_a, stack_b);
 	if (stack_a->bottom->sorted_position < pivot
 		&& stack_a->top->sorted_position > stack_a->bottom->sorted_position)
 		try_rrr_before_rra(stack_a, stack_b, 1);
+	if (stack_a->size > 1
+		&& stack_a->top->sorted_position > stack_a->top->next->sorted_position)
+		try_ss_before_sa(stack_a, stack_b);
 }
 
 void	second_to_last(t_stack *stack_a, t_stack *stack_b)
@@ -64,6 +65,28 @@ void	divide_conquer(t_stack *stack_a, t_stack *stack_b, int pivot)
 		second_to_last(stack_a, stack_b);
 	else
 		ft_ra(stack_a, 1);
+}
+// Compare "pos" stack_b to "pos" stack_a and return cheapest push cost
+int	best_pos_push(t_stack *stack_a, t_stack *stack_b)
+{
+	int		nb;
+	t_plate	*plate_a;
+	t_plate	*plate_b;
+
+	if (!stack_a || !stack_b)
+		return (-1);
+	nb = 0;
+	plate_b = stack_b->top;
+	while (plate_b)
+	{
+		plate_a = stack_a->top;
+		while (plate_a)
+		{
+			plate_a = plate_a->next;
+		}
+		nb++;
+		plate_b = plate->next;
+	}
 }
 
 void	selection_sort(t_stack *stack_a, t_stack *stack_b)
