@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 18:55:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/21 04:25:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/21 16:34:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,23 +69,22 @@ void	divide_conquer(t_stack *stack_a, t_stack *stack_b, int pivot)
 // Compare "pos" stack_b to "pos" stack_a and return cheapest push cost
 int	best_pos_push(t_stack *stack_a, t_stack *stack_b)
 {
-	int		nb;
+	int		nb_ra;
+	int		nb_rra;
+	int		nb_rb;
+	int		nb_rrb;
 	t_plate	*plate_a;
 	t_plate	*plate_b;
 
 	if (!stack_a || !stack_b)
 		return (-1);
-	nb = 0;
+	plate_a = stack_a->top;
 	plate_b = stack_b->top;
-	while (plate_b)
+	while (plate_a->sorted_position != (plate_b->sorted_position + 1))
 	{
-		plate_a = stack_a->top;
-		while (plate_a)
-		{
-			plate_a = plate_a->next;
-		}
-		nb++;
-		plate_b = plate->next;
+		nb_ra = distance_top_rotate(stack_a, plate_a);
+		nb_rra = distance_top_reverse_rotate(stack_a, plate_a);
+		plate_a = plate_a->next;
 	}
 }
 
@@ -98,6 +97,11 @@ void	selection_sort(t_stack *stack_a, t_stack *stack_b)
 	nb_plates = (int)(stack_a->size) + (int)(stack_b->size);
 	ft_printf("stack_a->size = %u ; nb_plates = %i ; pivot = %i\n",
 		stack_a->size, nb_plates, nb_plates / 2);
+	ft_printf("\nStack_a:\n");
+	ft_print_stack(stack_a);
+	ft_printf("\nStack_b:\n");
+	ft_print_stack(stack_b);
+	ft_printf("=======\n");
 	while (stack_a->size > stack_b->size + 1)
 	{
 		divide_conquer(stack_a, stack_b, nb_plates / 2);
