@@ -1,0 +1,131 @@
+stack: 146 703 140 890 714 348 43 189 60 409 181 125 563 311 391 796 483 499 921 793 339 256 274 124 250 845 41 882 307 896 696 666 708 546 425 717 42 763 185 503 364 842 881 692 312 964 473 910 335 850 491 838 844 375 924 955 13 82 877 180 990 749 193 429 485 380 536 502 396 589 765 22 833 538 918 160 357 265 167 495 27 862 75 114 535 490 761 522 787 518 174 207 861 782 172 622 313 944 459 255
+
+				10 by 10 array:
+  ======================================================================
+||13	|67		|12		|90		|69		|35		|5		|21		|6		|42||
+||------|-------|-------|-------|-------|-------|-------|-------|-------|--||
+||19	|11		|61		|30		|40		|78		|47		|52		|94		|77||
+||------|-------|-------|-------|-------|-------|-------|-------|-------|--||
+||34	|26		|28		|10		|24		|83		|3		|89		|29		|91||
+||------|-------|-------|-------|-------|-------|-------|-------|-------|--||
+||66	|64		|68		|60		|43		|70		|4		|73		|20		|54||
+||------|-------|-------|-------|-------|-------|-------|-------|-------|--||
+||37	|81		|88		|65		|31		|98		|46		|92		|33		|84||
+||------|-------|-------|-------|-------|-------|-------|-------|-------|--||
+||50	|80		|82		|38		|95		|97		|0		|8		|87		|18||
+||------|-------|-------|-------|-------|-------|-------|-------|-------|--||
+||99	|71		|22		|44		|48		|39		|58		|53		|41		|62||
+||------|-------|-------|-------|-------|-------|-------|-------|-------|--||
+||74	|1		|79		|59		|93		|14		|36		|27		|15		|51||
+||------|-------|-------|-------|-------|-------|-------|-------|-------|--||
+||2		|86		|7		|9		|57		|49		|72		|56		|76		|55||
+||------|-------|-------|-------|-------|-------|-------|-------|-------|--||
+||17	|23		|85		|75		|16		|63		|32		|96		|45		|25||
+  ======================================================================
+
+Biggest ascending sequence:
+
+
+Stack_a:
+value = 622 ; pos = 0 ; sorted_pos = 63
+value = 703 ; pos = 1 ; sorted_pos = 67
+value = 890 ; pos = 2 ; sorted_pos = 90
+value = 563 ; pos = 3 ; sorted_pos = 61
+value = 714 ; pos = 4 ; sorted_pos = 69
+value = 499 ; pos = 5 ; sorted_pos = 52
+value = 796 ; pos = 6 ; sorted_pos = 78
+value = 793 ; pos = 7 ; sorted_pos = 77
+value = 921 ; pos = 8 ; sorted_pos = 94
+value = 845 ; pos = 9 ; sorted_pos = 83
+value = 882 ; pos = 10 ; sorted_pos = 89
+value = 696 ; pos = 11 ; sorted_pos = 66
+value = 896 ; pos = 12 ; sorted_pos = 91
+value = 666 ; pos = 13 ; sorted_pos = 64
+value = 708 ; pos = 14 ; sorted_pos = 68
+value = 546 ; pos = 15 ; sorted_pos = 60
+value = 717 ; pos = 16 ; sorted_pos = 70
+value = 503 ; pos = 17 ; sorted_pos = 54
+value = 763 ; pos = 18 ; sorted_pos = 73
+value = 842 ; pos = 19 ; sorted_pos = 81
+value = 881 ; pos = 20 ; sorted_pos = 88
+value = 692 ; pos = 21 ; sorted_pos = 65
+value = 944 ; pos = 22 ; sorted_pos = 96
+value = 850 ; pos = 23 ; sorted_pos = 84
+value = 910 ; pos = 24 ; sorted_pos = 92
+value = 491 ; pos = 25 ; sorted_pos = 50
+value = 838 ; pos = 26 ; sorted_pos = 80
+value = 844 ; pos = 27 ; sorted_pos = 82
+value = 924 ; pos = 28 ; sorted_pos = 95
+value = 877 ; pos = 29 ; sorted_pos = 87
+value = 955 ; pos = 30 ; sorted_pos = 97
+value = 749 ; pos = 31 ; sorted_pos = 71
+value = 964 ; pos = 32 ; sorted_pos = 98
+value = 502 ; pos = 33 ; sorted_pos = 53
+value = 536 ; pos = 34 ; sorted_pos = 58
+value = 589 ; pos = 35 ; sorted_pos = 62
+value = 765 ; pos = 36 ; sorted_pos = 74
+value = 538 ; pos = 37 ; sorted_pos = 59
+value = 833 ; pos = 38 ; sorted_pos = 79
+value = 495 ; pos = 39 ; sorted_pos = 51
+value = 918 ; pos = 40 ; sorted_pos = 93
+value = 535 ; pos = 41 ; sorted_pos = 57
+value = 862 ; pos = 42 ; sorted_pos = 86
+value = 522 ; pos = 43 ; sorted_pos = 56
+value = 761 ; pos = 44 ; sorted_pos = 72
+value = 518 ; pos = 45 ; sorted_pos = 55
+value = 787 ; pos = 46 ; sorted_pos = 76
+value = 782 ; pos = 47 ; sorted_pos = 75
+value = 861 ; pos = 48 ; sorted_pos = 85
+value = 990 ; pos = 49 ; sorted_pos = 99
+
+Stack_b:
+value = 313 ; pos = 0 ; sorted_pos = 32
+value = 207 ; pos = 1 ; sorted_pos = 23
+value = 172 ; pos = 2 ; sorted_pos = 16
+value = 174 ; pos = 3 ; sorted_pos = 17
+value = 490 ; pos = 4 ; sorted_pos = 49
+value = 485 ; pos = 5 ; sorted_pos = 48
+value = 114 ; pos = 6 ; sorted_pos = 9
+value = 75 ; pos = 7 ; sorted_pos = 7
+value = 27 ; pos = 8 ; sorted_pos = 2
+value = 167 ; pos = 9 ; sorted_pos = 15
+value = 265 ; pos = 10 ; sorted_pos = 27
+value = 357 ; pos = 11 ; sorted_pos = 36
+value = 160 ; pos = 12 ; sorted_pos = 14
+value = 22 ; pos = 13 ; sorted_pos = 1
+value = 396 ; pos = 14 ; sorted_pos = 41
+value = 380 ; pos = 15 ; sorted_pos = 39
+value = 429 ; pos = 16 ; sorted_pos = 44
+value = 193 ; pos = 17 ; sorted_pos = 22
+value = 473 ; pos = 18 ; sorted_pos = 46
+value = 180 ; pos = 19 ; sorted_pos = 18
+value = 82 ; pos = 20 ; sorted_pos = 8
+value = 13 ; pos = 21 ; sorted_pos = 0
+value = 375 ; pos = 22 ; sorted_pos = 38
+value = 335 ; pos = 23 ; sorted_pos = 33
+value = 425 ; pos = 24 ; sorted_pos = 43
+value = 312 ; pos = 25 ; sorted_pos = 31
+value = 364 ; pos = 26 ; sorted_pos = 37
+value = 185 ; pos = 27 ; sorted_pos = 20
+value = 42 ; pos = 28 ; sorted_pos = 4
+value = 339 ; pos = 29 ; sorted_pos = 34
+value = 307 ; pos = 30 ; sorted_pos = 29
+value = 41 ; pos = 31 ; sorted_pos = 3
+value = 250 ; pos = 32 ; sorted_pos = 24
+value = 483 ; pos = 33 ; sorted_pos = 47
+value = 124 ; pos = 34 ; sorted_pos = 10
+value = 274 ; pos = 35 ; sorted_pos = 28
+value = 256 ; pos = 36 ; sorted_pos = 26
+value = 391 ; pos = 37 ; sorted_pos = 40
+value = 311 ; pos = 38 ; sorted_pos = 30
+value = 459 ; pos = 39 ; sorted_pos = 45
+value = 125 ; pos = 40 ; sorted_pos = 11
+value = 181 ; pos = 41 ; sorted_pos = 19
+value = 409 ; pos = 42 ; sorted_pos = 42
+value = 60 ; pos = 43 ; sorted_pos = 6
+value = 189 ; pos = 44 ; sorted_pos = 21
+value = 43 ; pos = 45 ; sorted_pos = 5
+value = 348 ; pos = 46 ; sorted_pos = 35
+value = 255 ; pos = 47 ; sorted_pos = 25
+value = 146 ; pos = 48 ; sorted_pos = 13
+value = 140 ; pos = 49 ; sorted_pos = 12

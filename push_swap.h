@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 08:25:41 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/20 20:01:29 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:56:57 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,12 @@ void	ft_rrb(t_stack *stack_b, int nb);
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b, int nb);
 void	try_rrr_before_rra(t_stack *stack_a, t_stack *stack_b, int nb);
 void	try_rrr_before_rrb(t_stack *stack_a, t_stack *stack_b, int nb);
+void	pre_sort_pb(t_stack *stack_a, t_stack *stack_b, int pivot);
 void	ft_print_stack(t_stack *stack);
-void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate);
-void	sort_two(t_stack *stack);
-void	sort_three(t_stack *stack);
+void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b);
+void	smallest_to_top(t_stack *stack_a, t_stack *stack_b, int pivot);
+void	sort_two(t_stack *stack_a, t_stack *stack_b);
+void	sort_three(t_stack *stack_a, t_stack *stack_b);
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
 t_plate	*get_smallest_plate(t_stack *stack);
 t_plate	*get_smaller_plate(t_stack *stack, t_plate *plate);
