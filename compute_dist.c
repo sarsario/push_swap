@@ -1,38 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   compute_dist.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 08:25:16 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/26 11:32:42 by osarsari         ###   ########.fr       */
+/*   Created: 2023/05/16 13:59:51 by osarsari          #+#    #+#             */
+/*   Updated: 2023/05/16 14:04:56 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	dist_from_top(t_stack *stack, t_plate *plate)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	int		dist;
+	t_plate	*top;
 
-	if (argc < 2)
-		return (0);
-	if (!valid_args(argc, argv))
-		ft_printf("Error\n");
-	else
+	if (!stack || !plate)
+		return (-1);
+	dist = 0;
+	top = stack->top;
+	while (top != plate)
 	{
-		stack_a = fill_stack(argc, argv);
-		stack_b = ft_stack_new();
-		if (!stack_a || !stack_b)
-			ft_printf("Error\n");
-		else
-			ft_sort(stack_a, stack_b);
-		ft_printf("\nStack a:\n");
-		ft_print_stack(stack_a);
+		dist++;
+		top = top->next;
 	}
-	return (0);
+	return (dist);
 }
 
-// system("leaks push_swap");
+int	dist_from_bot(t_stack *stack, t_plate *plate)
+{
+	t_plate	*bot;
+	int		dist;
+
+	if (!stack || !plate)
+		return (-1);
+	dist = 0;
+	bot = stack->bottom;
+	while (bot != plate)
+	{
+		dist++;
+		bot = bot->prev;
+	}
+	return (dist);
+}

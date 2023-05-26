@@ -6,9 +6,10 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:57 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/20 20:00:06 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:31:14 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -47,29 +48,8 @@ t_bool	ft_rotate(t_stack *stack)
 	return (true);
 }
 
-void	ft_ra(t_stack *stack_a, int nb)
+void	run_rotate(t_stack *stack, char name)
 {
-	while (nb-- > 0)
-	{
-		if (ft_rotate(stack_a))
-			ft_printf("ra\n");
-	}
-}
-
-void	ft_rb(t_stack *stack_b, int nb)
-{
-	while (nb-- > 0)
-	{
-		if (ft_rotate(stack_b))
-			ft_printf("rb\n");
-	}
-}
-
-void	ft_rr(t_stack *stack_a, t_stack *stack_b, int nb)
-{
-	while (nb-- > 0)
-	{
-		if (ft_rotate(stack_a) && ft_rotate(stack_b))
-			ft_printf("rr\n");
-	}
+	if (ft_rotate(stack))
+		ft_printf("r%c\n", name);
 }

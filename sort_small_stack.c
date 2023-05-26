@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:25:24 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/23 15:13:56 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:34:03 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	sort_three(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_five(t_stack *stack_a, t_stack *stack_b)
 {
-	// t_plate	*smallest;
-	// t_plate	*second_smallest;
+	t_plate	*smallest;
+	t_plate	*second_smallest;
 
 	if (!stack_a || !stack_b)
 		return (ft_putstr_fd("Error\n", 1));
