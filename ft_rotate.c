@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:57 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 23:13:42 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 20:00:06 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,41 @@ t_bool	ft_rotate(t_stack *stack)
 		current->value ^= next->value;
 		next->value ^= current->value;
 		current->value ^= next->value;
+		current->position ^= next->position;
+		next->position ^= current->position;
+		current->position ^= next->position;
+		current->sorted_position ^= next->sorted_position;
+		next->sorted_position ^= current->sorted_position;
+		current->sorted_position ^= next->sorted_position;
 		current = next;
 		next = next->next;
 	}
 	return (true);
 }
 
-void	run_rotate(t_stack *stack, char name)
+void	ft_ra(t_stack *stack_a, int nb)
 {
-	if (ft_rotate(stack))
-		ft_printf("r%c\n", name);
+	while (nb-- > 0)
+	{
+		if (ft_rotate(stack_a))
+			ft_printf("ra\n");
+	}
 }
 
-void	repeat_rotate(t_stack *stack, int nb, char name)
+void	ft_rb(t_stack *stack_b, int nb)
 {
-	if (!stack)
-		return ;
 	while (nb-- > 0)
-		run_rotate(stack, name);
+	{
+		if (ft_rotate(stack_b))
+			ft_printf("rb\n");
+	}
+}
+
+void	ft_rr(t_stack *stack_a, t_stack *stack_b, int nb)
+{
+	while (nb-- > 0)
+	{
+		if (ft_rotate(stack_a) && ft_rotate(stack_b))
+			ft_printf("rr\n");
+	}
 }

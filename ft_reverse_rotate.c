@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:29:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 23:12:25 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 19:59:04 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,41 @@ t_bool	ft_reverse_rotate(t_stack *stack)
 		current->value ^= prev->value;
 		prev->value ^= current->value;
 		current->value ^= prev->value;
+		current->position ^= prev->position;
+		prev->position ^= current->position;
+		current->position ^= prev->position;
+		current->sorted_position ^= prev->sorted_position;
+		prev->sorted_position ^= current->sorted_position;
+		current->sorted_position ^= prev->sorted_position;
 		current = prev;
 		prev = prev->prev;
 	}
 	return (true);
 }
 
-void	run_reverse_rotate(t_stack *stack, char name)
+void	ft_rra(t_stack *stack_a, int nb)
 {
-	if (ft_reverse_rotate(stack))
-		ft_printf("rr%c\n", name);
+	while (nb-- > 0)
+	{
+		if (ft_reverse_rotate(stack_a))
+			ft_printf("rra\n");
+	}
 }
 
-void	repeat_reverse_rotate(t_stack *stack, int nb, char name)
+void	ft_rrb(t_stack *stack_b, int nb)
 {
-	if (!stack)
-		return ;
 	while (nb-- > 0)
-		run_reverse_rotate(stack, name);
+	{
+		if (ft_reverse_rotate(stack_b))
+			ft_printf("rrb\n");
+	}
+}
+
+void	ft_rrr(t_stack *stack_a, t_stack *stack_b, int nb)
+{
+	while (nb-- > 0)
+	{
+		if (ft_reverse_rotate(stack_a) && ft_reverse_rotate(stack_b))
+			ft_printf("rrr\n");
+	}
 }

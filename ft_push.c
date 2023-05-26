@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:28:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 23:16:56 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/23 12:05:34 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,23 +86,20 @@ t_bool	ft_push_stack(t_stack *src, t_stack *dst)
 	return (true);
 }
 
-void	run_push_stack(t_stack *src, t_stack *dst, char name)
+void	ft_pa(t_stack *stack_a, t_stack *stack_b)
 {
-	if (ft_push_stack(src, dst))
-		ft_printf("p%c\n", name);
+	if (!ft_push_stack(stack_b, stack_a))
+		return ;
+	ft_printf("pa\n");
+	update_position(stack_a);
+	update_position(stack_b);
 }
 
-void	run_cheapest_push(t_stack *src, t_stack *dst, t_plate *plate)
+void	ft_pb(t_stack *stack_a, t_stack *stack_b)
 {
-	int		dist_from_top;
-	int		dist_from_bot;
-
-	if (!src || !dst || !plate)
+	if (!ft_push_stack(stack_a, stack_b))
 		return ;
-	dist_from_top = distance_top(src, plate);
-	dist_from_bot = distance_bot(src, plate);
-	if (dist_from_top == -1 || dist_from_bot == -1)
-		return ;
-	if (dist_from_bot > dist_from_top)
-		repeat_rotate(src, dist_from_top, 'a');
+	ft_printf("pb\n");
+	update_position(stack_a);
+	update_position(stack_b);
 }

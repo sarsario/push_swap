@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 20:24:39 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/10 22:51:50 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/23 12:18:56 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,17 @@ void	ft_print_stack(t_stack *stack)
 	current = stack->top;
 	while (current)
 	{
-		ft_printf("%i\n", current->value);
+		ft_printf("value = %i ; pos = %i ; sorted_pos = %i\n", current->value,
+			current->position, current->sorted_position);
 		current = current->next;
 	}
+}
+
+void	ft_print_stacks(t_stack *stack_a, t_stack *stack_b)
+{
+	ft_printf("\nStack_a:\n");
+	ft_print_stack(stack_a);
+	ft_printf("\nStack_b:\n");
+	ft_print_stack(stack_b);
+	ft_printf("=======\n");
 }

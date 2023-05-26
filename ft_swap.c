@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:30:13 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/16 10:58:19 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/20 20:01:03 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,29 @@ t_bool	ft_swap(t_stack *stack)
 	stack->top->value ^= stack->top->next->value;
 	stack->top->next->value ^= stack->top->value;
 	stack->top->value ^= stack->top->next->value;
+	stack->top->position ^= stack->top->next->position;
+	stack->top->next->position ^= stack->top->position;
+	stack->top->position ^= stack->top->next->position;
+	stack->top->sorted_position ^= stack->top->next->sorted_position;
+	stack->top->next->sorted_position ^= stack->top->sorted_position;
+	stack->top->sorted_position ^= stack->top->next->sorted_position;
 	return (true);
 }
 
-void	run_swap(t_stack *stack, char name)
+void	ft_sa(t_stack *stack_a)
 {
-	if (ft_swap(stack))
-		ft_printf("s%c\n", name);
+	if (ft_swap(stack_a))
+		ft_printf("sa\n");
+}
+
+void	ft_sb(t_stack *stack_b)
+{
+	if (ft_swap(stack_b))
+		ft_printf("sb\n");
+}
+
+void	ft_ss(t_stack *stack_a, t_stack *stack_b)
+{
+	if (ft_swap(stack_a) && ft_swap(stack_b))
+		ft_printf("ss\n");
 }

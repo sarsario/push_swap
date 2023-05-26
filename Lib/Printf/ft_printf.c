@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 12:12:31 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/06 15:22:12 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/19 11:24:34 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,20 @@ static int	is_supported_conversion(char c)
 		|| c == 'u' || c == 'x' || c == 'X' || c == '%');
 }
 
-static int	try_putconversion(char c, va_list args, int *total_printed)
+static int	try_putconversion(char c, va_list *args, int *total_printed)
 {
 	if (c == 'c')
-		return (try_putchar(va_arg(args, int), total_printed));
+		return (try_putchar(va_arg(*args, int), total_printed));
 	else if (c == 's')
-		return (try_putstr(va_arg(args, char *), total_printed));
+		return (try_putstr(va_arg(*args, char *), total_printed));
 	else if (c == 'p')
-		return (try_putptr(va_arg(args, void *), total_printed));
+		return (try_putptr(va_arg(*args, void *), total_printed));
 	else if (c == 'd' || c == 'i')
-		return (try_putnbr(va_arg(args, int), total_printed));
+		return (try_putnbr(va_arg(*args, int), total_printed));
 	else if (c == 'u')
-		return (try_putnbr_u(va_arg(args, unsigned int), total_printed));
+		return (try_putnbr_u(va_arg(*args, unsigned int), total_printed));
 	else if (c == 'x' || c == 'X')
-		return (try_puthex(c, va_arg(args, unsigned int), total_printed));
+		return (try_puthex(c, va_arg(*args, unsigned int), total_printed));
 	else if (c == '%')
 		return (try_putchar(c, total_printed));
 	else
@@ -51,7 +51,7 @@ int	ft_printf(const char *s, ...)
 		{
 			if (!is_supported_conversion(*(s + 1)))
 				return (total_printed);
-			if (try_putconversion(*(++s), args, &total_printed) < 0)
+			if (try_putconversion(*(++s), &args, &total_printed) < 0)
 				return (total_printed);
 		}
 		else
