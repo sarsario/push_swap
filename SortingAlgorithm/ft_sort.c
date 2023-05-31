@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:57:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/26 12:44:41 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:23:44 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ t_bool	stack_is_dsc(t_stack *stack)
 void	selection_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	sort_five(stack_a, stack_b);
-	// ft_print_stacks(stack_a, stack_b);
 	while (ft_pop(stack_a, &(int){0}))
 		;
 	while (ft_pop(stack_b, &(int){0}))
@@ -82,7 +81,6 @@ void	ft_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!stack_a || !stack_b)
 		return (ft_putstr_fd("Error\n", 1));
-	// ft_print_stacks(stack_a, stack_b);
 	if (stack_b->size == 0 && stack_is_asc(stack_a))
 		return ;
 	if (stack_a->size < 6)

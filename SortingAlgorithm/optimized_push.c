@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/26 10:04:22 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:30:11 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,12 @@ void	put_plate_top(t_stack *stack_a, t_stack *stack_b, t_plate *plate, int i)
 		rr_needed = distance_top_reverse_rotate(stack_b, plate);
 	if (r_needed == -1 || rr_needed == -1)
 		return (ft_putstr_fd("Error in distance_top\n", 1));
-	if (rr_needed < r_needed)
-	{
-		if (i == 0)
-			try_rrr_before_rra(stack_a, stack_b, rr_needed);
-		else
-			try_rrr_before_rrb(stack_a, stack_b, rr_needed);
-	}
+	if (i == 0 && rr_needed < r_needed)
+		try_rrr_before_rra(stack_a, stack_b, rr_needed);
+	else if (rr_needed < r_needed)
+		try_rrr_before_rrb(stack_a, stack_b, rr_needed);
+	else if (i == 0)
+		try_rr_before_ra(stack_a, stack_b, r_needed);
 	else
-	{
-		if (i == 0)
-			try_rr_before_ra(stack_a, stack_b, r_needed);
-		else
-			try_rr_before_rb(stack_a, stack_b, r_needed);
-	}
+		try_rr_before_rb(stack_a, stack_b, r_needed);
 }
