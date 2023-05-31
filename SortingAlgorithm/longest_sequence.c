@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 12:08:39 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/31 15:10:07 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:36:27 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	bring_smallest_top(t_stack *stack)
 	t_plate	*smallest;
 
 	if (!stack)
-		return (ft_putstr_fd("Error in bring_smallest_top.\n", 1));
+		return (-1);
 	nb_rotation = 0;
 	smallest = get_smallest_plate(stack);
 	while (stack->top != smallest)
@@ -35,6 +35,23 @@ void	cancel_rotation(t_stack *stack, int nb_rotation)
 		return (ft_putstr_fd("Error in cancel_rotation.\n", 1));
 	while (nb_rotation--)
 		ft_reverse_rotate(stack);
+}
+
+t_stack	*sorted_stack(t_stack *stack)
+{
+	t_stack	*sorted;
+	t_plate	*plate;
+
+	if (!stack)
+		return (NULL);
+	sorted = ft_stack_new();
+	plate = get_biggest_plate(stack);
+	while (plate)
+	{
+		ft_push(sorted, plate->value);
+		plate = get_smaller_plate(stack, plate);
+	}
+	return (sorted);
 }
 
 int	*longest_common_sequence(t_stack *stack)
@@ -64,5 +81,6 @@ int	*longest_common_sequence(t_stack *stack)
 			sequence[i++] = plate->value;
 		plate = plate->next;
 	}
+	cancel_rotation(stack, nb_rotation);
 	return (sequence);
 }
