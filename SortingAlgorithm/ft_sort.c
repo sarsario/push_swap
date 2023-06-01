@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:57:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/31 12:23:44 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:35:22 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,6 @@ t_bool	stack_is_dsc(t_stack *stack)
 void	selection_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	sort_five(stack_a, stack_b);
-	while (ft_pop(stack_a, &(int){0}))
-		;
-	while (ft_pop(stack_b, &(int){0}))
-		;
-	free(stack_a);
-	free(stack_b);
 }
 
 void	ft_sort(t_stack *stack_a, t_stack *stack_b)
@@ -84,6 +78,13 @@ void	ft_sort(t_stack *stack_a, t_stack *stack_b)
 	if (stack_b->size == 0 && stack_is_asc(stack_a))
 		return ;
 	if (stack_a->size < 6)
-		return (sort_small_stack(stack_a, stack_b));
-	return (selection_sort(stack_a, stack_b));
+		sort_small_stack(stack_a, stack_b);
+	else
+		selection_sort(stack_a, stack_b);
+	while (ft_pop(stack_a, &(int){0}))
+		;
+	while (ft_pop(stack_b, &(int){0}))
+		;
+	free(stack_a);
+	free(stack_b);
 }

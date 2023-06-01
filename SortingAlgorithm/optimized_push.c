@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/31 12:30:11 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:39:18 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	pre_sort_pb(t_stack *stack_a, t_stack *stack_b, int pivot)
 			try_ss_before_sa(stack_a, stack_b);
 		if (stack_a->bot->sorted_position < stack_a->top->sorted_position)
 			try_rrr_before_rra(stack_a, stack_b, 1);
-		return (ft_pb(stack_a, stack_b));
+		if (!stack_is_asc(stack_a))
+			return (ft_pb(stack_a, stack_b));
 	}
 	else
 		return (try_rr_before_ra(stack_a, stack_b, 2));

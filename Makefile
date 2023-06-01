@@ -31,6 +31,10 @@ debug: CFLAGS += -fsanitize=address -g
 debug: $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
 
+lldb: CFLAGS += -g3
+lldb: $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
+
 clean:
 	$(RM) $(OBJS)
 	@make clean -C $(LIBFT_PATH)

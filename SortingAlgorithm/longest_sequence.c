@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 12:08:39 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/31 15:10:07 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:27:01 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	bring_smallest_top(t_stack *stack)
 	t_plate	*smallest;
 
 	if (!stack)
-		return (ft_putstr_fd("Error in bring_smallest_top.\n", 1));
+		return (-1);
 	nb_rotation = 0;
 	smallest = get_smallest_plate(stack);
 	while (stack->top != smallest)
@@ -37,32 +37,32 @@ void	cancel_rotation(t_stack *stack, int nb_rotation)
 		ft_reverse_rotate(stack);
 }
 
-int	*longest_common_sequence(t_stack *stack)
-{
-	int		nb_rotation;
-	t_plate	*plate;
-	t_plate	*next;
-	t_stack	*ordered_stack;
-	int		*sequence;
-	int		i;
+// int	*longest_common_sequence(t_stack *stack)
+// {
+// 	int		nb_rotation;
+// 	t_plate	*plate;
+// 	t_plate	*next;
+// 	t_stack	*ordered_stack;
+// 	int		*sequence;
+// 	int		i;
 
-	if (!stack)
-		return (NULL);
-	sequence = malloc(sizeof(int) * stack->size);
-	if (!sequence)
-		return (NULL);
-	nb_rotation = bring_smallest_top(stack);
-	ordered_stack = sorted_stack(stack);
-	plate = stack->top;
-	next = ordered_stack->top;
-	i = 0;
-	while (plate && next)
-	{
-		while (next && next->value != plate->value)
-			next = next->next;
-		if (next && next->value == plate->value)
-			sequence[i++] = plate->value;
-		plate = plate->next;
-	}
-	return (sequence);
-}
+// 	if (!stack)
+// 		return (NULL);
+// 	sequence = malloc(sizeof(int) * stack->size);
+// 	if (!sequence)
+// 		return (NULL);
+// 	nb_rotation = bring_smallest_top(stack);
+// 	ordered_stack = sorted_stack(stack);
+// 	plate = stack->top;
+// 	next = ordered_stack->top;
+// 	i = 0;
+// 	while (plate && next)
+// 	{
+// 		while (next && next->value != plate->value)
+// 			next = next->next;
+// 		if (next && next->value == plate->value)
+// 			sequence[i++] = plate->value;
+// 		plate = plate->next;
+// 	}
+// 	return (sequence);
+// }
