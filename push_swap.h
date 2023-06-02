@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/02 20:19:18 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/03 00:13:55 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ void	try_rrr_before_rrb(t_stack *stack_a, t_stack *stack_b, int nb);
 void	sort_two(t_stack *stack_a, t_stack *stack_b);
 void	sort_three(t_stack *stack_a, t_stack *stack_b);
 void	pre_sort_pb(t_stack *stack_a, t_stack *stack_b, int pivot);
-// int		distance_top_rotate(t_stack *stack, t_plate *plate);
-// int		distance_top_reverse_rotate(t_stack *stack, t_plate *plate);
-// void	put_plate_top(t_stack *stack_a,
-// 			t_stack *stack_b,
-// 			t_plate *plate,
-// 			int i);
+int		distance_top_rotate(t_stack *stack, t_plate *plate);
+int		distance_top_reverse_rotate(t_stack *stack, t_plate *plate);
+void	put_plate_top(t_stack *stack_a,
+			t_stack *stack_b,
+			t_plate *plate,
+			int i);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
 void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b,
