@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/01 16:39:18 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:12:22 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,63 +31,127 @@ void	pre_sort_pb(t_stack *stack_a, t_stack *stack_b, int pivot)
 		return (try_rr_before_ra(stack_a, stack_b, 2));
 }
 
-int	distance_top_rotate(t_stack *stack, t_plate *plate)
-{
-	t_plate	*top;
-	int		distance;
+// void	top_half_pa(t_stack *stack_a, t_stack *stack_b)
+// {
+// 	int	midpoint;
 
-	if (!stack || !plate || stack->size < 1)
-		return (-1);
-	distance = 0;
-	top = stack->top;
-	while (top != plate)
+// 	if (!stack_a || !stack_b)
+// 		return (ft_putstr_fd("Error in top_half_pa.\n", 1));
+// 	if (stack_b->size < 2)
+// 		return (ft_pa(stack_a, stack_b));
+// 	if (stack_b->size < 3 && stack_b->top->value < stack_b->bot->value)
+// 		try_ss_before_sb(stack_a, stack_b);
+// 	while (stack_b->size < 3 && stack_b->size > 0)
+// 		ft_pa(stack_a, stack_b);
+// 	midpoint = stack_b->size / 2;
+// }
+
+void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b,
+	int value)
+{
+	t_plate	*closest_from_top;
+	int		nb_ra;
+	int		nb_rra;
+
+	if (!stack_a || !stack_b || stack_a->size < 1)
+		return (ft_putstr_fd("Error in optimal_half_pb.\n", 1));
+	closest_from_top = stack_a->top;
+	nb_ra = 0;
+	while (closest_from_top->value >= value && nb_ra++ > -1)
+		closest_from_top = closest_from_top->next;
+	// {
+	// 	nb_ra++;
+	// }
+	nb_rra = 1;
+	closest_from_top = stack_a->bot;
+	while (closest_from_top->value >= value)
 	{
-		distance++;
-		top = top->next;
+		closest_from_top = closest_from_top->prev;
+		nb_rra++;
 	}
-	return (distance);
+	if (nb_ra > nb_rra)
+		try_rrr_before_rra(stack_a, stack_b, nb_rra);
+	else
+		try_rr_before_ra(stack_a, stack_b, nb_ra);
+	ft_pb(stack_a, stack_b);
 }
 
-int	distance_top_reverse_rotate(t_stack *stack, t_plate *plate)
+void	lower_half_pb(t_stack *stack_a, t_stack *stack_b)
 {
-	t_plate	*bot;
-	int		distance;
+	t_plate	*smallest_staying_plate;
+	int		midpoint;
+	int		i;
 
-	if (!stack || !plate || stack->size < 1)
-		return (-1);
-	distance = 1;
-	bot = stack->bot;
-	while (bot != plate)
-	{
-		distance++;
-		bot = bot->prev;
-	}
-	return (distance);
+	if (!stack_a || !stack_b)
+		return (ft_putstr_fd("Error in lower_half_pb.\n", 1));
+	midpoint = (stack_a->size / 2);
+	smallest_staying_plate = get_biggest_plate(stack_a);
+	i = midpoint;
+	while (--i > 0)
+		smallest_staying_plate = get_smaller_plate(
+				stack_a, smallest_staying_plate);
+	i = smallest_staying_plate->value;
+	while (!stack_is_asc(stack_a) && stack_a->bot->position >= midpoint)
+		optimal_half_pb(stack_a, stack_b, i);
 }
 
-void	put_plate_top(t_stack *stack_a, t_stack *stack_b, t_plate *plate, int i)
-{
-	int	r_needed;
-	int	rr_needed;
+// int	distance_top_rotate(t_stack *stack, t_plate *plate)
+// {
+// 	t_plate	*top;
+// 	int		distance;
 
-	if (!stack_a || !stack_b || !plate)
-		return (ft_putstr_fd("Error in send_plate_top\n", 1));
-	if (i == 0)
-		r_needed = distance_top_rotate(stack_a, plate);
-	else
-		r_needed = distance_top_rotate(stack_b, plate);
-	if (i == 0)
-		rr_needed = distance_top_reverse_rotate(stack_a, plate);
-	else
-		rr_needed = distance_top_reverse_rotate(stack_b, plate);
-	if (r_needed == -1 || rr_needed == -1)
-		return (ft_putstr_fd("Error in distance_top\n", 1));
-	if (i == 0 && rr_needed < r_needed)
-		try_rrr_before_rra(stack_a, stack_b, rr_needed);
-	else if (rr_needed < r_needed)
-		try_rrr_before_rrb(stack_a, stack_b, rr_needed);
-	else if (i == 0)
-		try_rr_before_ra(stack_a, stack_b, r_needed);
-	else
-		try_rr_before_rb(stack_a, stack_b, r_needed);
-}
+// 	if (!stack || !plate || stack->size < 1)
+// 		return (-1);
+// 	distance = 0;
+// 	top = stack->top;
+// 	while (top != plate)
+// 	{
+// 		distance++;
+// 		top = top->next;
+// 	}
+// 	return (distance);
+// }
+
+// int	distance_top_reverse_rotate(t_stack *stack, t_plate *plate)
+// {
+// 	t_plate	*bot;
+// 	int		distance;
+
+// 	if (!stack || !plate || stack->size < 1)
+// 		return (-1);
+// 	distance = 1;
+// 	bot = stack->bot;
+// 	while (bot != plate)
+// 	{
+// 		distance++;
+// 		bot = bot->prev;
+// 	}
+// 	return (distance);
+// }
+
+// void	put_plate_top(t_stack *stack_a, t_stack *stack_b, t_plate *plate, int i)
+// {
+// 	int	r_needed;
+// 	int	rr_needed;
+
+// 	if (!stack_a || !stack_b || !plate)
+// 		return (ft_putstr_fd("Error in send_plate_top\n", 1));
+// 	if (i == 0)
+// 		r_needed = distance_top_rotate(stack_a, plate);
+// 	else
+// 		r_needed = distance_top_rotate(stack_b, plate);
+// 	if (i == 0)
+// 		rr_needed = distance_top_reverse_rotate(stack_a, plate);
+// 	else
+// 		rr_needed = distance_top_reverse_rotate(stack_b, plate);
+// 	if (r_needed == -1 || rr_needed == -1)
+// 		return (ft_putstr_fd("Error in distance_top\n", 1));
+// 	if (i == 0 && rr_needed < r_needed)
+// 		try_rrr_before_rra(stack_a, stack_b, rr_needed);
+// 	else if (rr_needed < r_needed)
+// 		try_rrr_before_rrb(stack_a, stack_b, rr_needed);
+// 	else if (i == 0)
+// 		try_rr_before_ra(stack_a, stack_b, r_needed);
+// 	else
+// 		try_rr_before_rb(stack_a, stack_b, r_needed);
+// }
