@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:02:00 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/02 16:04:17 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/02 21:48:50 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	sort_three(t_stack *stack_a, t_stack *stack_b)
 		return (sort_two(stack_a, stack_b));
 }
 
-// t_plate	*biggest_plate;
 
 void	sort_five(t_stack *stack_a, t_stack *stack_b)
 {
@@ -64,10 +63,6 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 		ft_sa(stack_a);
 }
 
-// biggest_plate = get_biggest_plate(stack_b);
-// if (stack_b->top != biggest_plate)
-// 	put_plate_top(stack_a, stack_b, biggest_plate, 1);
-
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!stack_a || !stack_b)
@@ -76,3 +71,8 @@ void	sort_small_stack(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	sort_five(stack_a, stack_b);
 }
+
+// t_plate	*biggest_plate;
+// biggest_plate = get_biggest_plate(stack_b);
+// if (stack_b->top != biggest_plate)
+// 	put_plate_top(stack_a, stack_b, biggest_plate, 1);
