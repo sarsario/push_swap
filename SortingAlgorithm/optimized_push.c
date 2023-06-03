@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/03 13:02:34 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/03 15:49:02 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,8 @@ void	top_half_pa(t_stack *stack_a, t_stack *stack_b)
 		plate = plate->prev;
 		biggest_staying = get_bigger_plate(stack_b, biggest_staying);
 	}
-	// midpoint = (stack_b->size / 2) + i;
-	midpoint = (stack_b->size - i) / 2;
-	i = midpoint;
+	midpoint = (stack_b->size / 2) + i;
+	i = midpoint - i;
 	while (--i > 0)
 		biggest_staying = get_bigger_plate(stack_b, biggest_staying);
 	i = biggest_staying->value;
@@ -135,9 +134,8 @@ void	lower_half_pb(t_stack *stack_a, t_stack *stack_b)
 		smallest_staying_plate = get_smaller_plate(stack_a,
 				smallest_staying_plate);
 	}
-	// midpoint = (stack_a->size / 2) + i;
-	midpoint = (stack_a->size - i) / 2;
-	i = midpoint;
+	midpoint = (stack_a->size / 2) + i;
+	i = midpoint - i;
 	while (--i > 0)
 		smallest_staying_plate = get_smaller_plate(
 				stack_a, smallest_staying_plate);
