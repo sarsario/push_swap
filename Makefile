@@ -19,7 +19,7 @@ $(shell mkdir -p $(OBJ_DIR))
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
+	$(CC) $(CFLAGS) -O3 -o $(NAME) $(OBJS) $(LDFLAGS)
 
 $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
