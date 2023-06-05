@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/03 00:47:25 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/05 11:30:59 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,20 @@ void	lower_half_pb(t_stack *stack_a, t_stack *stack_b)
 
 	if (!stack_a || !stack_b)
 		return (ft_putstr_fd("Error in lower_half_pb.\n", 1));
-	midpoint = (stack_a->size / 2);
+	if (stack_a->size > 500)
+		midpoint = stack_a->size / 10;
+	else if (stack_a->size > 100)
+		midpoint = stack_a->size / 8;
+	else if (stack_a->size > 30)
+		midpoint = stack_a->size / 4;
+	else
+		midpoint = stack_a->size / 2;
 	smallest_staying_plate = get_biggest_plate(stack_a);
-	i = midpoint;
+	i = stack_a->size - midpoint;
 	while (--i > 0)
 		smallest_staying_plate = get_smaller_plate(
 				stack_a, smallest_staying_plate);
 	i = smallest_staying_plate->value;
-	while (!stack_is_asc(stack_a) && stack_a->bot->position >= midpoint)
+	while (midpoint--)
 		optimal_half_pb(stack_a, stack_b, i);
 }
