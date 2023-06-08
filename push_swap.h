@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/03 00:13:55 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:12:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_bool	ft_is_space(int c);
 t_bool	ft_int_overflow(const char *s, const char sign);
 t_bool	ft_is_int(const char *s);
 t_bool	valid_args(int argc, char **argv);
+void	free_stack(t_stack *stack);
 t_stack	*ft_stack_new(void);
 t_plate	*ft_plate_new(t_plate *next, int value);
 t_bool	ft_push(t_stack *stack, int value);

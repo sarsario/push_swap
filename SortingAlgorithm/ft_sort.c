@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:57:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/03 00:43:09 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/08 17:14:09 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,6 @@ void	ft_sort(t_stack *stack_a, t_stack *stack_b)
 		sort_small_stack(stack_a, stack_b);
 	else
 		quick_sort(stack_a, stack_b);
-	while (ft_pop(stack_a, &(int){0}))
-		;
-	while (ft_pop(stack_b, &(int){0}))
-		;
-	free(stack_a);
-	free(stack_b);
+	free_stack(stack_a);
+	free_stack(stack_b);
 }
