@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/10 00:02:29 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/10 00:12:32 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,43 +46,43 @@ void	pre_sort_pb(t_stack *stack_a, t_stack *stack_b, int pivot)
 // 	midpoint = stack_b->size / 2;
 // }
 
-// void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b,
-// 	int value)
-// {
-// 	t_plate	*closest_from_top;
-// 	t_plate	*closest_from_bot;
-// 	int		nb_ra;
-// 	int		nb_rra;
-
-// 	if (!stack_a || !stack_b || stack_a->size < 1)
-// 		return (ft_putstr_fd("Error in optimal_half_pb.\n", 2));
-// 	closest_from_top = stack_a->top;
-// 	nb_ra = 0;
-// 	while (closest_from_top->value >= value && nb_ra++ > -1)
-// 		closest_from_top = closest_from_top->next;
-// 	nb_rra = 1;
-// 	closest_from_bot = stack_a->bot;
-// 	while (closest_from_bot->value >= value && nb_rra++ > -1)
-// 		closest_from_bot = closest_from_bot->prev;
-// 	if (nb_ra > nb_rra)
-// 		try_rrr_before_rra(stack_a, stack_b, nb_rra);
-// 	else if (nb_rra > nb_ra)
-// 		try_rr_before_ra(stack_a, stack_b, nb_ra);
-// 	else if (closest_from_top->value < closest_from_bot->value)
-// 		try_rr_before_ra(stack_a, stack_b, nb_ra);
-// 	else
-// 		try_rrr_before_rra(stack_a, stack_b, nb_rra);
-// 	ft_pb(stack_a, stack_b);
-// }
-
-void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b, int staying_value)
+void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b,
+	int value)
 {
-	t_plate	*to_pb;
+	t_plate	*closest_from_top;
+	t_plate	*closest_from_bot;
+	int		nb_ra;
+	int		nb_rra;
 
-	to_pb = best_plate_pb(stack_a, stack_b, staying_value);
-	align_stacks(stack_a, stack_b, to_pb);
+	if (!stack_a || !stack_b || stack_a->size < 1)
+		return (ft_putstr_fd("Error in optimal_half_pb.\n", 2));
+	closest_from_top = stack_a->top;
+	nb_ra = 0;
+	while (closest_from_top->value >= value && nb_ra++ > -1)
+		closest_from_top = closest_from_top->next;
+	nb_rra = 1;
+	closest_from_bot = stack_a->bot;
+	while (closest_from_bot->value >= value && nb_rra++ > -1)
+		closest_from_bot = closest_from_bot->prev;
+	if (nb_ra > nb_rra)
+		try_rrr_before_rra(stack_a, stack_b, nb_rra);
+	else if (nb_rra > nb_ra)
+		try_rr_before_ra(stack_a, stack_b, nb_ra);
+	else if (closest_from_top->value < closest_from_bot->value)
+		try_rr_before_ra(stack_a, stack_b, nb_ra);
+	else
+		try_rrr_before_rra(stack_a, stack_b, nb_rra);
 	ft_pb(stack_a, stack_b);
 }
+
+// void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b, int staying_value)
+// {
+// 	t_plate	*to_pb;
+
+// 	to_pb = best_plate_pb(stack_a, stack_b, staying_value);
+// 	align_stacks(stack_a, stack_b, to_pb);
+// 	ft_pb(stack_a, stack_b);
+// }
 
 void	lower_half_pb(t_stack *stack_a, t_stack *stack_b)
 {
@@ -96,8 +96,8 @@ void	lower_half_pb(t_stack *stack_a, t_stack *stack_b)
 		midpoint = stack_a->size / 12;
 	// else if (stack_a->size > 250)
 	// 	midpoint = stack_a->size / 10;
-	// else if (stack_a->size > 100)
-	// 	midpoint = stack_a->size / 8;
+	else if (stack_a->size >= 100)
+		midpoint = stack_a->size / 8;
 	else if (stack_a->size >= 66)
 		midpoint = stack_a->size / 6;
 	else if (stack_a->size >= 33)
