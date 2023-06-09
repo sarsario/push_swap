@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:42:55 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/25 18:10:14 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/09 23:44:44 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,18 @@ void	ft_rrb(t_stack *stack_b, int nb)
 
 void	ft_rrr(t_stack *stack_a, t_stack *stack_b, int nb)
 {
+	t_bool	rra;
+	t_bool	rrb;
+
 	while (nb-- > 0)
 	{
-		if (ft_reverse_rotate(stack_a) && ft_reverse_rotate(stack_b))
+		rra = ft_reverse_rotate(stack_a);
+		rrb = ft_reverse_rotate(stack_b);
+		if (rra && rrb)
 			ft_printf("rrr\n");
+		else if (rra)
+			ft_printf("rra\n");
+		else
+			ft_printf("rrb\n");
 	}
 }
