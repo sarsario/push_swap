@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/08 17:12:40 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/09 20:43:53 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,18 @@ void	sort_three(t_stack *stack_a, t_stack *stack_b);
 void	pre_sort_pb(t_stack *stack_a, t_stack *stack_b, int pivot);
 int		distance_top_rotate(t_stack *stack, t_plate *plate);
 int		distance_top_reverse_rotate(t_stack *stack, t_plate *plate);
+// Trying to include this part
+int		cost_rotate_top(t_stack *stack, t_plate *plate);
+int		cost_reverse_top(t_stack *stack, t_plate *plate);
+t_plate	*find_biggest_smaller(t_stack *stack, t_plate *plate);
+int		get_cost_indiv(int cost_ra, int cost_rb, int cost_rra, int cost_rrb);
+int		get_cost_comb(int cost_ra, int cost_rb, int cost_rra, int cost_rrb);
+int		cost_trick(int cost_ra, int cost_rb, int cost_rra, int cost_rrb);
+int		ft_cost(t_stack *stack_a, t_stack *stack_b, t_plate *to_move);
+void	best_move_top_a(t_stack *stack, t_plate *to_top);
+t_plate	*best_plate_pb(t_stack *stack_a, t_stack *stack_b, int staying_value);
+void	align_stacks(t_stack *stack_a, t_stack *stack_b, t_plate *to_move);
+// End of include
 void	put_plate_top(t_stack *stack_a,
 			t_stack *stack_b,
 			t_plate *plate,

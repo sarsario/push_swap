@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:57:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/08 17:14:09 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/09 21:12:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,31 @@ void	quick_sort(t_stack *stack_a, t_stack *stack_b)
 	return (quick_sort(stack_a, stack_b));
 }
 
+void	cost_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	t_plate	*to_pb;
+	t_plate	*staying;
+	int		staying_value;
+
+	to_pb = stack_a->top;
+	staying = get_biggest_plate(stack_a);
+	staying = get_smaller_plate(stack_a, staying);
+	staying = get_smaller_plate(stack_a, staying);
+	staying_value = staying->value;
+	while (stack_a->size > 3)
+	{
+		to_pb = best_plate_pb(stack_a, stack_b, staying_value);
+		align_stacks(stack_a, stack_b, to_pb);
+		ft_pb(stack_a, stack_b);
+	}
+	sort_three(stack_a, stack_b);
+	while (stack_b->size > 0)
+	{
+		put_plate_top(stack_a, stack_b, get_biggest_plate(stack_b), 1);
+		ft_pa(stack_a, stack_b);
+	}
+}
+
 void	ft_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!stack_a || !stack_b)
@@ -92,6 +117,7 @@ void	ft_sort(t_stack *stack_a, t_stack *stack_b)
 		sort_small_stack(stack_a, stack_b);
 	else
 		quick_sort(stack_a, stack_b);
+		// cost_sort(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
