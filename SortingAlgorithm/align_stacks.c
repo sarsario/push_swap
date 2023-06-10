@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 18:32:11 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/09 21:19:18 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:23:48 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	best_move_top_a(t_stack *stack_a, t_plate *to_top)
 	ft_ra(stack_a, nb_ra);
 }
 
-void	smart_align(t_stack *stack_a, t_stack *stack_b, t_plate *to_move,
+void	smart_align_b(t_stack *stack_a, t_stack *stack_b, t_plate *to_move,
 	t_plate *to_top_b)
 {
 	int		nb_ra;
@@ -58,7 +58,41 @@ void	smart_align(t_stack *stack_a, t_stack *stack_b, t_plate *to_move,
 	}
 }
 
-void	align_stacks(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
+void	smart_align_a(t_stack *stack_a, t_stack *stack_b, t_plate *to_move,
+	t_plate *to_top_a)
+{
+	int		nb_ra;
+	int		nb_rra;
+	int		nb_rb;
+	int		nb_rrb;
+
+	nb_ra = cost_rotate_top(stack_a, to_top_a);
+	nb_rra = cost_reverse_top(stack_a, to_top_a);
+	nb_rb = cost_rotate_top(stack_b, to_move);
+	nb_rrb = cost_reverse_top(stack_b, to_move);
+	if (nb_rb > nb_ra && (nb_rb < nb_rra || nb_rb < nb_rrb))
+	{
+		ft_rr(stack_a, stack_b, nb_ra);
+		ft_rb(stack_b, nb_rb - nb_ra);
+	}
+	else if (nb_ra >= nb_rb && (nb_ra < nb_rra || nb_ra < nb_rrb))
+	{
+		ft_rr(stack_a, stack_b, nb_rb);
+		ft_ra(stack_a, nb_ra - nb_rb);
+	}
+	else if (nb_rrb > nb_rra && (nb_rrb < nb_ra || nb_rrb < nb_rb))
+	{
+		ft_rrr(stack_a, stack_b, nb_rra);
+		ft_rrb(stack_b, nb_rrb - nb_rra);
+	}
+	else
+	{
+		ft_rrr(stack_a, stack_b, nb_rrb);
+		ft_rra(stack_a, nb_rra - nb_rrb);
+	}
+}
+
+void	align_stacks_pb(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
 {
 	t_plate	*top_plate_b;
 	int		nb_ra;
@@ -86,5 +120,36 @@ void	align_stacks(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
 			ft_rb(stack_b, nb_rb);
 	}
 	else
-		smart_align(stack_a, stack_b, to_move, top_plate_b);
+		smart_align_b(stack_a, stack_b, to_move, top_plate_b);
+}
+
+void	align_stacks_pa(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
+{
+	t_plate	*top_plate_a;
+	int		nb_ra;
+	int		nb_rb;
+	int		nb_rra;
+	int		nb_rrb;
+
+	if (stack_b->size == 0)
+		return (best_move_top_a(stack_a, to_move));
+	top_plate_a = find_smallest_bigger(stack_a, to_move);
+	nb_ra = cost_rotate_top(stack_a, top_plate_a);
+	nb_rra = cost_reverse_top(stack_a, top_plate_a);
+	nb_rb = cost_rotate_top(stack_b, to_move);
+	nb_rrb = cost_reverse_top(stack_b, to_move);
+	if (get_cost_comb(nb_ra, nb_rb, nb_rra, nb_rrb)
+		> get_cost_indiv(nb_ra, nb_rb, nb_rra, nb_rrb))
+	{
+		if (nb_ra > nb_rra)
+			ft_rra(stack_a, nb_rra);
+		else
+			ft_ra(stack_a, nb_ra);
+		if (nb_rb > nb_rrb)
+			ft_rrb(stack_b, nb_rrb);
+		else
+			ft_rb(stack_b, nb_rb);
+	}
+	else
+		smart_align_a(stack_a, stack_b, to_move, top_plate_a);
 }

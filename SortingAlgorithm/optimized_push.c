@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/10 00:12:32 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/10 10:34:05 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,15 @@ void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b,
 	else
 		try_rrr_before_rra(stack_a, stack_b, nb_rra);
 	ft_pb(stack_a, stack_b);
+}
+
+void	optimal_pa(t_stack *stack_a, t_stack *stack_b)
+{
+	t_plate	*best_plate;
+
+	best_plate = best_plate_pa(stack_a, stack_b);
+	align_stacks_pa(stack_a, stack_b, best_plate);
+	ft_pa(stack_a, stack_b);
 }
 
 // void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b, int staying_value)

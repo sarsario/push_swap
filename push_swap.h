@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/10 09:56:07 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/10 10:49:23 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,11 @@ int		cost_trick(int cost_ra, int cost_rb, int cost_rra, int cost_rrb);
 int		ft_cost_pa(t_stack *stack_a, t_stack *stack_b, t_plate *to_move);
 int		ft_cost_pb(t_stack *stack_a, t_stack *stack_b, t_plate *to_move);
 void	best_move_top_a(t_stack *stack, t_plate *to_top);
+void	align_stacks_pb(t_stack *stack_a, t_stack *stack_b, t_plate *to_move);
+void	align_stacks_pa(t_stack *stack_a, t_stack *stack_b, t_plate *to_move);
 t_plate	*best_plate_pb(t_stack *stack_a, t_stack *stack_b, int staying_value);
-void	align_stacks(t_stack *stack_a, t_stack *stack_b, t_plate *to_move);
+t_plate	*best_plate_pa(t_stack *stack_a, t_stack *stack_b);
+void	optimal_pa(t_stack *stack_a, t_stack *stack_b);
 // End of include
 void	put_plate_top(t_stack *stack_a,
 			t_stack *stack_b,

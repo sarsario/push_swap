@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:11:11 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/10 09:51:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:02:35 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ t_plate	*find_smallest_bigger(t_stack *stack, t_plate *to_move)
 	t_plate	*smallest_bigger;
 
 	smallest_bigger = get_smallest_plate(stack);
-	while (to_move->value < smallest_bigger->value)
+	while (to_move->value > smallest_bigger->value)
 		smallest_bigger = get_bigger_plate(stack, smallest_bigger);
 	return (smallest_bigger);
 }
@@ -131,12 +131,37 @@ int	ft_cost_pa(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
 	int		cost_rra;
 	int		cost_rrb;
 
-	should_be_top = find_smallest_bigger(stack_b, to_move);
-	cost_ra = cost_rotate_top(stack_a, to_move);
-	cost_rb = cost_rotate_top(stack_b, should_be_top);
-	cost_rra = cost_reverse_top(stack_a, to_move);
-	cost_rrb = cost_reverse_top(stack_b, should_be_top);
+	should_be_top = find_smallest_bigger(stack_a, to_move);
+	cost_ra = cost_rotate_top(stack_a, should_be_top);
+	cost_rb = cost_rotate_top(stack_b, to_move);
+	cost_rra = cost_reverse_top(stack_a, should_be_top);
+	cost_rrb = cost_reverse_top(stack_b, to_move);
 	return (cost_trick(cost_ra, cost_rb, cost_rra, cost_rrb));
+}
+
+t_plate	*best_plate_pa(t_stack *stack_a, t_stack *stack_b)
+{
+	t_plate	*plate;
+	t_plate	*next;
+	int		min_cost;
+	int		cost;
+
+	plate = stack_b->top;
+	min_cost = ft_cost_pa(stack_a, stack_b, plate);
+	if (min_cost == 0)
+		return (plate);
+	next = plate->next;
+	while (next)
+	{
+		cost = ft_cost_pa(stack_a, stack_b, next);
+		if (cost < min_cost)
+		{
+			min_cost = cost;
+			plate = next;
+		}
+		next = next->next;
+	}
+	return (plate);
 }
 
 t_plate	*best_plate_pb(t_stack *stack_a, t_stack *stack_b, int staying_value)
