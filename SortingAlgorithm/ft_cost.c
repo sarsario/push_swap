@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:11:11 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/10 11:02:35 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:55:46 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,31 @@ t_plate	*best_plate_pb(t_stack *stack_a, t_stack *stack_b, int staying_value)
 	{
 		cost = ft_cost_pb(stack_a, stack_b, next);
 		if (next->value < staying_value && min_cost > cost)
+		{
+			min_cost = cost;
+			plate = next;
+		}
+		next = next->next;
+	}
+	return (plate);
+}
+
+t_plate	*best_plate_pa_half(t_stack *stack_a, t_stack *stack_b, int staying_value)
+{
+	t_plate	*plate;
+	t_plate	*next;
+	int		min_cost;
+	int		cost;
+
+	plate = stack_b->top;
+	while (plate->value <= staying_value)
+		plate = plate->next;
+	min_cost = ft_cost_pa(stack_a, stack_b, plate);
+	next = plate->next;
+	while (next)
+	{
+		cost = ft_cost_pa(stack_a, stack_b, next);
+		if (cost < min_cost)
 		{
 			min_cost = cost;
 			plate = next;

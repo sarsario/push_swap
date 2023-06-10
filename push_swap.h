@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/10 10:49:23 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:56:20 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ void	align_stacks_pa(t_stack *stack_a, t_stack *stack_b, t_plate *to_move);
 t_plate	*best_plate_pb(t_stack *stack_a, t_stack *stack_b, int staying_value);
 t_plate	*best_plate_pa(t_stack *stack_a, t_stack *stack_b);
 void	optimal_pa(t_stack *stack_a, t_stack *stack_b);
+void	upper_half_pa(t_stack *stack_a, t_stack *stack_b);
+t_plate	*best_plate_pa_half(t_stack *stack_a, t_stack *stack_b, int staying_value);
 // End of include
 void	put_plate_top(t_stack *stack_a,
 			t_stack *stack_b,

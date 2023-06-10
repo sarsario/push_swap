@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:57:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/10 10:51:46 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/10 11:44:57 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	quick_sort(t_stack *stack_a, t_stack *stack_b)
 	while (stack_a->size > 3)
 		lower_half_pb(stack_a, stack_b);
 	sort_three(stack_a, stack_b);
+	while (stack_b->size > 6)
+		upper_half_pa(stack_a, stack_b);
 	while (stack_b->size > 0)
 		optimal_pa(stack_a, stack_b);
 	while (!stack_is_asc(stack_a))
