@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:11:11 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/09 20:48:39 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/10 09:51:51 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	cost_trick(int cost_ra, int cost_rb, int cost_rra, int cost_rrb)
 	return (cost_comb);
 }
 
-int	ft_cost(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
+int	ft_cost_pb(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
 {
 	t_plate	*should_be_top;
 	int		cost_ra;
@@ -106,6 +106,32 @@ int	ft_cost(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
 	int		cost_rrb;
 
 	should_be_top = find_biggest_smaller(stack_b, to_move);
+	cost_ra = cost_rotate_top(stack_a, to_move);
+	cost_rb = cost_rotate_top(stack_b, should_be_top);
+	cost_rra = cost_reverse_top(stack_a, to_move);
+	cost_rrb = cost_reverse_top(stack_b, should_be_top);
+	return (cost_trick(cost_ra, cost_rb, cost_rra, cost_rrb));
+}
+
+t_plate	*find_smallest_bigger(t_stack *stack, t_plate *to_move)
+{
+	t_plate	*smallest_bigger;
+
+	smallest_bigger = get_smallest_plate(stack);
+	while (to_move->value < smallest_bigger->value)
+		smallest_bigger = get_bigger_plate(stack, smallest_bigger);
+	return (smallest_bigger);
+}
+
+int	ft_cost_pa(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
+{
+	t_plate	*should_be_top;
+	int		cost_ra;
+	int		cost_rb;
+	int		cost_rra;
+	int		cost_rrb;
+
+	should_be_top = find_smallest_bigger(stack_b, to_move);
 	cost_ra = cost_rotate_top(stack_a, to_move);
 	cost_rb = cost_rotate_top(stack_b, should_be_top);
 	cost_rra = cost_reverse_top(stack_a, to_move);
@@ -125,11 +151,11 @@ t_plate	*best_plate_pb(t_stack *stack_a, t_stack *stack_b, int staying_value)
 		plate = plate->next;
 	if (stack_b->size == 0)
 		return (plate);
-	min_cost = ft_cost(stack_a, stack_b, plate);
+	min_cost = ft_cost_pb(stack_a, stack_b, plate);
 	next = plate->next;
 	while (next)
 	{
-		cost = ft_cost(stack_a, stack_b, next);
+		cost = ft_cost_pb(stack_a, stack_b, next);
 		if (next->value < staying_value && min_cost > cost)
 		{
 			min_cost = cost;
