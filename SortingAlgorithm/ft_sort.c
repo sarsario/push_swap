@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:57:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/08 17:14:09 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/13 20:53:03 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	quick_sort(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	if (stack_is_asc(stack_a))
 	{
+		// top_b(stack_b, get_biggest_plate(stack_b)->value);
 		put_plate_top(stack_a, stack_b, get_biggest_plate(stack_b), 1);
 		ft_pa(stack_a, stack_b);
 	}

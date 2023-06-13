@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 00:49:44 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/03 00:50:06 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/13 20:48:22 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,77 @@ void	put_plate_top(t_stack *stack_a, t_stack *stack_b, t_plate *plate, int i)
 		try_rr_before_ra(stack_a, stack_b, r_needed);
 	else
 		try_rr_before_rb(stack_a, stack_b, r_needed);
+}
+
+int	rb_needed(t_stack *stack_b, int top_value)
+{
+	t_plate	*current;
+	int		res;
+
+	current = stack_b->top;
+	res = 0;
+	while (current->value != top_value)
+	{
+		res++;
+		current = current->next;
+	}
+	return (res);
+}
+
+int	rrb_needed(t_stack *stack_b, int top_value)
+{
+	t_plate	*current;
+	int		res;
+
+	current = stack_b->bot;
+	res = 1;
+	while (current->value != top_value)
+	{
+		res++;
+		current = current->prev;
+	}
+	return (res);
+}
+
+void	top_rb(t_stack *stack_b, int top_value)
+{
+	t_plate	*current;
+
+	current = stack_b->top;
+	while (current->value != top_value)
+	{
+		if (current->value < current->next->value)
+			ft_sb(stack_b);
+		else
+			ft_rb(stack_b, 1);
+	}
+}
+
+void	top_rrb(t_stack *stack_b, int top_value)
+{
+	t_plate	*current;
+
+	current = stack_b->top;
+	while (current->value != top_value)
+	{
+		if (current->value < current->next->value)
+			ft_sb(stack_b);
+		else
+			ft_rrb(stack_b, 1);
+	}
+}
+
+void	top_b(t_stack *stack_b, int top_value)
+{
+	t_plate	*current;
+	int		nb_rb;
+	int		nb_rrb;
+
+	current = stack_b->top;
+	nb_rb = rb_needed(stack_b, top_value);
+	nb_rrb = rrb_needed(stack_b, top_value);
+	if (nb_rb > nb_rrb)
+		top_rrb(stack_b, top_value);
+	else
+		top_rb(stack_b, top_value);
 }

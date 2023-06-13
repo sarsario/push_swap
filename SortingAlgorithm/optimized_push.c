@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/05 11:30:59 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/13 20:01:39 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,28 @@ void	lower_half_pb(t_stack *stack_a, t_stack *stack_b)
 
 	if (!stack_a || !stack_b)
 		return (ft_putstr_fd("Error in lower_half_pb.\n", 1));
-	if (stack_a->size > 500)
-		midpoint = stack_a->size / 10;
+	// if (stack_a->size > 500)
+	// 	midpoint = stack_a->size / 10;
+	// else if (stack_a->size > 100)
+	// 	midpoint = stack_a->size / 8;
+	// else if (stack_a->size > 30)
+	// 	midpoint = stack_a->size / 4;
+	// else
+	// if (stack_a->size > 99)
+	// 	midpoint = stack_a->size / 5;
+	// if (stack_a->size)
+	// if (stack_a->size > 334)
+	// 	midpoint = stack_a->size / 6;
+	if (stack_a->size > 167)
+		midpoint = stack_a->size / 5;
 	else if (stack_a->size > 100)
-		midpoint = stack_a->size / 8;
-	else if (stack_a->size > 30)
 		midpoint = stack_a->size / 4;
-	else
+	else if (stack_a->size > 32)
+		midpoint = stack_a->size / 3;
+	else if (stack_a->size > 4)
 		midpoint = stack_a->size / 2;
+	else
+		midpoint = 1;
 	smallest_staying_plate = get_biggest_plate(stack_a);
 	i = stack_a->size - midpoint;
 	while (--i > 0)
