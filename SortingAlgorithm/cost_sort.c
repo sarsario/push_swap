@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:17:55 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/14 20:19:27 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/14 20:46:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,17 +144,23 @@ t_plate	*find_best_pb(t_stack *stack_a, t_stack *stack_b, int value)
 	bot_candidate = stack_a->bot;
 	while (bot_candidate->value >= value)
 		bot_candidate = bot_candidate->prev;
-	while (i-- > 0)
+	while (i-- > 0 && top_candidate->next && bot_candidate)
 	{
 		top_candidate = top_candidate->next;
-		cost = lowest_cost_pb(stack_a, stack_b, top_candidate);
+		if (top_candidate->value >= value)
+			cost = INT_MAX;
+		else
+			cost = lowest_cost_pb(stack_a, stack_b, top_candidate);
 		if (cost < min_cost)
 		{
 			min_cost = cost;
 			i = min_cost;
 			to_move = top_candidate;
 		}
-		cost = lowest_cost_pb(stack_a, stack_b, bot_candidate);
+		if (bot_candidate->value >= value)
+			cost = INT_MAX;
+		else
+			cost = lowest_cost_pb(stack_a, stack_b, bot_candidate);
 		if (cost < min_cost)
 		{
 			min_cost = cost;
