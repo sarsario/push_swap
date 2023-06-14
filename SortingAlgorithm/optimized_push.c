@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/13 20:01:39 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:57:20 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,6 @@ void	pre_sort_pb(t_stack *stack_a, t_stack *stack_b, int pivot)
 	else
 		return (try_rr_before_ra(stack_a, stack_b, 2));
 }
-
-// void	top_half_pa(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	int	midpoint;
-
-// 	if (!stack_a || !stack_b)
-// 		return (ft_putstr_fd("Error in top_half_pa.\n", 1));
-// 	if (stack_b->size < 2)
-// 		return (ft_pa(stack_a, stack_b));
-// 	if (stack_b->size < 3 && stack_b->top->value < stack_b->bot->value)
-// 		try_ss_before_sb(stack_a, stack_b);
-// 	while (stack_b->size < 3 && stack_b->size > 0)
-// 		ft_pa(stack_a, stack_b);
-// 	midpoint = stack_b->size / 2;
-// }
 
 void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b,
 	int value)
@@ -83,18 +68,6 @@ void	lower_half_pb(t_stack *stack_a, t_stack *stack_b)
 
 	if (!stack_a || !stack_b)
 		return (ft_putstr_fd("Error in lower_half_pb.\n", 1));
-	// if (stack_a->size > 500)
-	// 	midpoint = stack_a->size / 10;
-	// else if (stack_a->size > 100)
-	// 	midpoint = stack_a->size / 8;
-	// else if (stack_a->size > 30)
-	// 	midpoint = stack_a->size / 4;
-	// else
-	// if (stack_a->size > 99)
-	// 	midpoint = stack_a->size / 5;
-	// if (stack_a->size)
-	// if (stack_a->size > 334)
-	// 	midpoint = stack_a->size / 6;
 	if (stack_a->size > 167)
 		midpoint = stack_a->size / 5;
 	else if (stack_a->size > 100)

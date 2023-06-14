@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/13 20:28:03 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:58:25 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,8 @@ void	put_plate_top(t_stack *stack_a,
 void	top_b(t_stack *stack_b, int top_value);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
-void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b,
-			int value);
+void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b, int value);
 void	lower_half_pb(t_stack *stack_a, t_stack *stack_b);
-// void	top_half_pa(t_stack *stack_a, t_stack *stack_b);
 void	quick_sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort(t_stack *stack_a, t_stack *stack_b);
 
