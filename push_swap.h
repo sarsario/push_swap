@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/14 10:58:25 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/14 13:08:17 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_stack{
 	int				size;
 }					t_stack;
 
+int		ft_absolute(int nb);
 t_bool	ft_is_space(int c);
 t_bool	ft_int_overflow(const char *s, const char sign);
 t_bool	ft_is_int(const char *s);
@@ -88,7 +89,12 @@ void	put_plate_top(t_stack *stack_a,
 			t_stack *stack_b,
 			t_plate *plate,
 			int i);
-void	top_b(t_stack *stack_b, int top_value);
+void	aligned_pb_ra(t_stack *stack_a, t_stack *stack_b, t_plate *to_move,
+			int nb_ra);
+void	aligned_pb_rra(t_stack *stack_a, t_stack *stack_b, t_plate *to_move,
+			int nb_rra);
+int		cost_r(t_stack *stack, t_plate *to_top);
+int		cost_rr(t_stack *stack, t_plate *to_top);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	sort_small_stack(t_stack *stack_a, t_stack *stack_b);
 void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b, int value);
