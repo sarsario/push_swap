@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/10 11:56:20 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/14 19:27:06 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void	optimal_half_pb(t_stack *stack_a, t_stack *stack_b,
 void	lower_half_pb(t_stack *stack_a, t_stack *stack_b);
 // void	top_half_pa(t_stack *stack_a, t_stack *stack_b);
 void	quick_sort(t_stack *stack_a, t_stack *stack_b);
+void	cost_sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif
