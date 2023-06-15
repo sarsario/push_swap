@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 17:42:55 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/09 23:44:44 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/15 09:31:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	ft_rrr(t_stack *stack_a, t_stack *stack_b, int nb)
 			ft_printf("rrr\n");
 		else if (rra)
 			ft_printf("rra\n");
-		else
+		else if (rrb)
 			ft_printf("rrb\n");
 	}
 }

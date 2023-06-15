@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:17:55 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/14 20:46:40 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/15 10:11:12 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,8 @@ t_plate	*find_best_pb(t_stack *stack_a, t_stack *stack_b, int value)
 		if (cost < min_cost)
 		{
 			min_cost = cost;
-			i = min_cost;
+			if (i > min_cost)
+				i = min_cost;
 			to_move = top_candidate;
 		}
 		if (bot_candidate->value >= value)
@@ -164,7 +165,8 @@ t_plate	*find_best_pb(t_stack *stack_a, t_stack *stack_b, int value)
 		if (cost < min_cost)
 		{
 			min_cost = cost;
-			i = min_cost;
+			if (i > min_cost)
+				i = min_cost;
 			to_move = bot_candidate;
 		}
 		bot_candidate = bot_candidate->prev;
@@ -255,9 +257,7 @@ void	cost_sort(t_stack *stack_a, t_stack *stack_b)
 	while (stack_a->size > 3)
 		push_lower_b(stack_a, stack_b, ref_value);
 	sort_three(stack_a, stack_b);
+	put_plate_top(stack_a, stack_b, get_biggest_plate(stack_b), 1);
 	while (stack_b->size > 0)
-	{
-		put_plate_top(stack_a, stack_b, get_biggest_plate(stack_b), 1);
 		ft_pa(stack_a, stack_b);
-	}
 }
