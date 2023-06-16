@@ -6,7 +6,8 @@ SRCS = Validation/ft_is_int.c Validation/ft_parse.c Stack/ft_stack.c\
 	SortingAlgorithm/optimized_push.c SortingAlgorithm/sort_five.c\
 	SortingAlgorithm/subpar_rotation.c SortingAlgorithm/ft_sort.c\
 	push_swap.c Stack/free_stack.c SortingAlgorithm/ft_cost.c\
-	SortingAlgorithm/align_stacks.c SortingAlgorithm/cost_sort.c
+	SortingAlgorithm/align_stacks.c SortingAlgorithm/cost_sort.c\
+	SortingAlgorithm/quick_selection.c
 OBJ_DIR = obj
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 NAME = push_swap

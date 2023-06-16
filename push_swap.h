@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/14 19:27:06 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/17 00:47:47 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,13 @@ void	lower_half_pb(t_stack *stack_a, t_stack *stack_b);
 void	quick_sort(t_stack *stack_a, t_stack *stack_b);
 void	cost_sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort(t_stack *stack_a, t_stack *stack_b);
+
+// Experiment
+int		cost_r(t_stack *stack, t_plate *to_move);
+int		cost_rr(t_stack *stack, t_plate *to_move);
+int		ft_max(int a, int b);
+int		ft_min(int a, int b);
+int		cost_logic(int ra, int rb, int rra, int rrb);
+void	quick_selection(t_stack *stack_a, t_stack *stack_b);
 
 #endif

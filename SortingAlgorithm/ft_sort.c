@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:57:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/14 19:27:47 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/17 00:51:32 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ void	ft_sort(t_stack *stack_a, t_stack *stack_b)
 	else
 		// quick_sort(stack_a, stack_b);
 		cost_sort(stack_a, stack_b);
+		// quick_selection(stack_a, stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }

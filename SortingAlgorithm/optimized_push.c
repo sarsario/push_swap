@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 15:22:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/10 11:51:16 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/17 00:00:48 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,36 +128,32 @@ void	upper_half_pa(t_stack *stack_a, t_stack *stack_b)
 		optimal_half_pa(stack_a, stack_b, i);
 }
 
-void	lower_half_pb(t_stack *stack_a, t_stack *stack_b)
-{
-	t_plate	*smallest_staying_plate;
-	int		midpoint;
-	int		i;
+// void	lower_half_pb(t_stack *stack_a, t_stack *stack_b)
+// {
+// 	t_plate	*smallest_staying_plate;
+// 	int		midpoint;
+// 	int		i;
 
-	if (!stack_a || !stack_b)
-		return (ft_putstr_fd("Error in lower_half_pb.\n", 2));
-	if (stack_a->size > 500)
-		midpoint = stack_a->size / 12;
-	// else if (stack_a->size > 250)
-	// 	midpoint = stack_a->size / 10;
-	else if (stack_a->size >= 100)
-		midpoint = stack_a->size / 8;
-	else if (stack_a->size >= 66)
-		midpoint = stack_a->size / 6;
-	else if (stack_a->size >= 33)
-		midpoint = stack_a->size / 4;
-	else if (stack_a->size >= 6)
-		midpoint = stack_a->size / 2;
-	else if (stack_a->size == 5)
-		midpoint = 2;
-	else
-		midpoint = 1;
-	smallest_staying_plate = get_biggest_plate(stack_a);
-	i = stack_a->size - midpoint;
-	while (--i > 0)
-		smallest_staying_plate = get_smaller_plate(
-				stack_a, smallest_staying_plate);
-	i = smallest_staying_plate->value;
-	while (midpoint--)
-		optimal_half_pb(stack_a, stack_b, i);
-}
+// 	if (!stack_a || !stack_b)
+// 		return (ft_putstr_fd("Error in lower_half_pb.\n", 2));
+// 	else if (stack_a->size >= 100)
+// 		midpoint = stack_a->size / 8;
+// 	else if (stack_a->size >= 66)
+// 		midpoint = stack_a->size / 6;
+// 	else if (stack_a->size >= 33)
+// 		midpoint = stack_a->size / 4;
+// 	else if (stack_a->size >= 6)
+// 		midpoint = stack_a->size / 2;
+// 	else if (stack_a->size == 5)
+// 		midpoint = 2;
+// 	else
+// 		midpoint = 1;
+// 	smallest_staying_plate = get_biggest_plate(stack_a);
+// 	i = stack_a->size - midpoint;
+// 	while (--i > 0)
+// 		smallest_staying_plate = get_smaller_plate(
+// 				stack_a, smallest_staying_plate);
+// 	i = smallest_staying_plate->value;
+// 	while (midpoint--)
+// 		optimal_half_pb(stack_a, stack_b, i);
+// }
