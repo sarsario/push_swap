@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:17:55 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/15 10:11:12 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:58:16 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,31 +80,31 @@ int	cost_rr(t_stack *stack, t_plate *to_move)
 	return (res);
 }
 
-int	ft_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
+// int	ft_max(int a, int b)
+// {
+// 	if (a > b)
+// 		return (a);
+// 	return (b);
+// }
 
-int	ft_min(int a, int b)
-{
-	if (a > b)
-		return (b);
-	return (a);
-}
+// int	ft_min(int a, int b)
+// {
+// 	if (a > b)
+// 		return (b);
+// 	return (a);
+// }
 
-int	cost_logic(int ra, int rb, int rra, int rrb)
-{
-	int	rr;
-	int	rrr;
-	int	rab;
+// int	cost_logic(int ra, int rb, int rra, int rrb)
+// {
+// 	int	rr;
+// 	int	rrr;
+// 	int	rab;
 
-	rr = ft_max(ra, rb);
-	rrr = ft_max(rra, rrb);
-	rab = ft_min(ra, rra) + ft_min(rb, rrb);
-	return (ft_min(ft_min(rr, rrr), rab));
-}
+// 	rr = ft_max(ra, rb);
+// 	rrr = ft_max(rra, rrb);
+// 	rab = ft_min(ra, rra) + ft_min(rb, rrb);
+// 	return (ft_min(ft_min(rr, rrr), rab));
+// }
 
 int	lowest_cost_pb(t_stack *stack_a, t_stack *stack_b, t_plate *to_move)
 {

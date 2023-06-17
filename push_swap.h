@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/14 19:27:06 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:58:43 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_stack{
 	int				size;
 }					t_stack;
 
+int		ft_min(int a, int b);
+int		ft_max(int a, int b);
 t_bool	ft_is_space(int c);
 t_bool	ft_int_overflow(const char *s, const char sign);
 t_bool	ft_is_int(const char *s);
@@ -116,5 +118,16 @@ void	lower_half_pb(t_stack *stack_a, t_stack *stack_b);
 void	quick_sort(t_stack *stack_a, t_stack *stack_b);
 void	cost_sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort(t_stack *stack_a, t_stack *stack_b);
+
+// LIS Experiment
+typedef struct s_array{
+	int	*lis_at_index;
+	int	size;
+}		t_lis;
+
+int		cost_logic(int ra, int rb, int rra, int rrb);
+t_lis	*lis_construct(t_stack *stack_a, int n);
+void	print_lis(t_lis *lis);
+void	lis_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

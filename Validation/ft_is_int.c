@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:26:37 by osarsari          #+#    #+#             */
-/*   Updated: 2023/05/25 13:37:28 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:38:38 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,18 @@ t_bool	ft_is_int(const char *s)
 	if (!*s)
 		return (false);
 	return (ft_int_overflow(s, sign));
+}
+
+int	ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+int	ft_min(int a, int b)
+{
+	if (a > b)
+		return (b);
+	return (a);
 }

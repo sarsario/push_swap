@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:18:59 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/08 17:15:18 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/17 11:45:07 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main(int argc, char **argv)
 		}
 		else
 			ft_sort(stack_a, stack_b);
+			// print_lis(lis_construct(stack_a, stack_a->size));
 	}
 	return (0);
 }
