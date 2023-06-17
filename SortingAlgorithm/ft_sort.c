@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:57:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/17 11:57:55 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/17 13:35:31 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,9 +128,9 @@ void	ft_sort(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	if (stack_a->size < 6)
 		sort_small_stack(stack_a, stack_b);
-	else if (stack_a->size < 120)
+	// else if (stack_a->size < 120)
 		// quick_sort(stack_a, stack_b);
-		cost_sort(stack_a, stack_b);
+		// cost_sort(stack_a, stack_b);
 	else
 		lis_sort(stack_a, stack_b);
 	free_stack(stack_a);
