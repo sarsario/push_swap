@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:18:59 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/01 17:00:49 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/18 16:30:41 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,19 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (!valid_args(argc, argv))
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 	else
 	{
 		stack_a = fill_stack(argc, argv);
-		stack_b = ft_stack_new();
+		stack_b = ft_stack_new(argc);
 		if (!stack_a || !stack_b)
-			ft_printf("Error\n");
+		{
+			if (stack_a)
+				free_stack(stack_a);
+			else
+				free_stack(stack_b);
+			ft_putstr_fd("Error\n", 2);
+		}
 		else
 			ft_sort(stack_a, stack_b);
 	}

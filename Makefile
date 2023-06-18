@@ -1,11 +1,13 @@
 LIBFT_PATH = ./Lib
 LIBFT = $(LIBFT_PATH)/libft.a
-SRCS = Validation/ft_is_int.c Validation/ft_parse.c Stack/ft_stack.c\
-	Stack/ft_plate.c Stack/ft_push.c Stack/ft_swap.c Stack/try_ss.c\
-	Stack/ft_rotate.c Stack/try_rr.c Stack/ft_reverse_rotate.c Stack/try_rrr.c\
-	SortingAlgorithm/optimized_push.c SortingAlgorithm/sort_five.c\
-	SortingAlgorithm/subpar_rotation.c SortingAlgorithm/ft_sort.c\
-	push_swap.c
+VLDN = Validation
+STACK = Stack
+ALGO = SortingAlgorithm
+OBJ_DIRS = $(VLDN) $(STACK) $(ALGO)
+SRCS = $(VLDN)/ft_is_int.c $(VLDN)/ft_parse.c $(STACK)/ft_stack.c\
+	$(STACK)/ft_push.c $(STACK)/ft_swap.c $(STACK)/ft_rotate.c\
+	$(STACK)/ft_reverse_rotate.c $(STACK)/ft_find.c $(ALGO)/combined_logic.c\
+	$(ALGO)/sort_under_seven.c $(ALGO)/lis_sort.c $(ALGO)/ft_sort.c push_swap.c
 OBJ_DIR = obj
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 NAME = push_swap
@@ -15,6 +17,9 @@ RM = rm -f
 LDFLAGS = -L$(LIBFT_PATH) -lft
 
 $(shell mkdir -p $(OBJ_DIR))
+$(shell mkdir -p $(OBJ_DIR)/$(VLDN))
+$(shell mkdir -p $(OBJ_DIR)/$(STACK))
+$(shell mkdir -p $(OBJ_DIR)/$(ALGO))
 
 all: $(NAME)
 
@@ -27,7 +32,7 @@ $(OBJ_DIR)/%.o: %.c
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
 
-debug: CFLAGS += -fsanitize=address -g
+debug: CFLAGS += -fsanitize=address -g3
 debug: $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
 
