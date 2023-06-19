@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:15:22 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/19 18:42:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:56:36 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ t_stack	*get_lis(int *sequence, int size)
 void	lis_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*lis;
+
 	lis = get_best_lis(stack_a);
 	if (!lis || lis->size < 1)
 		return (ft_putstr_fd("Error\n", 2));
