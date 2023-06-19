@@ -6,21 +6,11 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:15:22 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/19 19:56:36 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:59:48 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-// void	print_stack(t_stack *stack)
-// {
-// 	int	i = stack->size;
-
-// 	ft_printf("Stack:");
-// 	while (i--)
-// 		ft_printf(" %i", stack->numbers[i]);
-// 	ft_printf("\n");
-// }
 
 t_stack	**stack_matrix(int row, int col)
 {
@@ -119,11 +109,3 @@ void	lis_sort(t_stack *stack_a, t_stack *stack_b)
 	rotate_top(stack_a, get_smallest_int(stack_a), 'a');
 	free_stack(lis);
 }
-
-	// int j = lis->size;
-	// ft_printf("\nLIS size: %i\nLIS:", lis->size);
-	// while (j--)
-	// 	ft_printf(" %i",lis->numbers[j]);
-	// ft_printf("\nLis from print_stack:\n");
-	// print_stack(lis);
-	// ft_printf("\nStack_b size = %i\n", stack_b->size);
