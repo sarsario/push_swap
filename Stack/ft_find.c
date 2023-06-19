@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:14:01 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/18 17:53:31 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/19 13:58:51 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,9 @@ int	get_bigger_int(t_stack *stack, int n)
 			res = stack->numbers[i];
 	}
 	return (res);
+}
+
+int	get_smallest_bigger(t_stack *stack, int n)
+{
+
 }

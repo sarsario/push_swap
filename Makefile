@@ -7,7 +7,8 @@ OBJ_DIRS = $(VLDN) $(STACK) $(ALGO)
 SRCS = $(VLDN)/ft_is_int.c $(VLDN)/ft_parse.c $(STACK)/ft_stack.c\
 	$(STACK)/ft_push.c $(STACK)/ft_swap.c $(STACK)/ft_rotate.c\
 	$(STACK)/ft_reverse_rotate.c $(STACK)/ft_find.c $(ALGO)/combined_logic.c\
-	$(ALGO)/sort_under_seven.c $(ALGO)/lis_sort.c $(ALGO)/ft_sort.c push_swap.c
+	$(ALGO)/sort_under_seven.c $(ALGO)/ft_cost.c $(ALGO)/ft_cost2.c\
+	$(ALGO)/efficient_move.c $(ALGO)/lis_sort.c $(ALGO)/ft_sort.c push_swap.c
 OBJ_DIR = obj
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 NAME = push_swap
