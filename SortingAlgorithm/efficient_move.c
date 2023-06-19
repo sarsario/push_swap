@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:55:03 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/19 13:56:22 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/19 17:30:27 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,23 @@ void	efficient_pa(t_stack *stack_a, t_stack *stack_b, int to_push)
 	int	rra;
 	int	rrb;
 	int	to_top;
+
+	to_top = get_smallest_bigger(stack_a, to_push);
+	ra = cost_rotate(stack_a, to_top);
+	rb = cost_rotate(stack_b, to_push);
+	rra = cost_reverse_rotate(stack_a, to_top);
+	rrb = cost_reverse_rotate(stack_b, to_push);
+	if (can_rr(ra, rb, rra, rrb))
+		return (exec_rr_pa(stack_a, stack_b, ra, rb));
+	if (can_rrr(ra, rb, rra, rrb))
+		return (exec_rrr_pa(stack_a, stack_b, rra, rrb));
+	if (ra > rra)
+		ft_rra(stack_a, rra);
+	else
+		ft_ra(stack_a, ra);
+	if (rb > rrb)
+		ft_rrb(stack_b, rrb);
+	else
+		ft_rb(stack_b, rb);
+	ft_pa(stack_a, stack_b);
 }

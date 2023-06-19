@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:15:22 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/19 13:17:53 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:42:51 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_stack	**stack_matrix(int row, int col)
 {
 	t_stack	**matrix;
 	int		i;
-	int		j;
 
 	matrix = malloc(sizeof(t_stack *) * row);
 	if (!matrix)
@@ -41,7 +40,6 @@ t_stack	**stack_matrix(int row, int col)
 				free_stack(matrix[i]);
 			return (NULL);
 		}
-		j = -1;
 	}
 	return (matrix);
 }
@@ -97,7 +95,7 @@ t_stack	*get_lis(int *sequence, int size)
 	while (i++ < size - 1)
 	{
 		if (lis->size < lis_matrix[i]->size)
-			lis = lis_matrix[i];
+			lis_copy(lis, lis_matrix[i]);
 	}
 	while (size--)
 		free_stack(lis_matrix[size]);
@@ -108,26 +106,17 @@ t_stack	*get_lis(int *sequence, int size)
 void	lis_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*lis;
-	int		i;
-	int		rot;
-
-	i = stack_a->size;
-	rot = 0;
-	while (stack_a->numbers[stack_a->size - 1] != get_smallest_int(stack_a))
-	{
-		ft_rotate(stack_a);
-		rot++;
-	}
-	lis = get_lis(stack_a->numbers, stack_a->size);
-	if (!lis)
+	lis = get_best_lis(stack_a);
+	if (!lis || lis->size < 1)
 		return (ft_putstr_fd("Error\n", 2));
-	while (rot--)
-		ft_reverse_rotate(stack_a);
-	while (stack_a->size > lis->size)
+	while (stack_a->size > lis->size && stack_a->size > 3)
 		efficient_pb(stack_a, stack_b, lis);
+	if (stack_a->size == 3)
+		sort_three(stack_a);
 	while (stack_b->size > 0)
 		efficient_pa(stack_a, stack_b, lowest_cost_pa(stack_a, stack_b));
 	rotate_top(stack_a, get_smallest_int(stack_a), 'a');
+	free_stack(lis);
 }
 
 	// int j = lis->size;

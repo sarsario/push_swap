@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:13:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/19 13:58:45 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:36:37 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,14 @@ int		estimated_cost(t_stack *stack_a, t_stack *stack_b, int n);
 int		lowest_cost_pa(t_stack *stack_a, t_stack *stack_b);
 void	rotate_top(t_stack *stack, int n, char c);
 void	efficient_pb(t_stack *stack_a, t_stack *stack_b, t_stack *lis);
+t_bool	can_rr(int ra, int rb, int rra, int rrb);
+t_bool	can_rrr(int ra, int rb, int rra, int rrb);
+void	exec_rr_pa(t_stack *stack_a, t_stack *stack_b, int ra, int rb);
+void	exec_rrr_pa(t_stack *stack_a, t_stack *stack_b, int rra, int rrb);
 void	efficient_pa(t_stack *stack_a, t_stack *stack_b, int to_push);
+void	lis_copy(t_stack *dst, t_stack *src);
+t_stack	*get_lis(int *sequence, int size);
+t_stack	*get_best_lis(t_stack *stack);
 void	lis_sort(t_stack *stack_a, t_stack *stack_b);
 void	ft_sort(t_stack *stack_a, t_stack *stack_b);
 

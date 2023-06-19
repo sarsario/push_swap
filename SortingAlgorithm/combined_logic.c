@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 19:07:59 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/18 19:48:38 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/19 17:11:35 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ void	combined_r(t_stack *stack_a, t_stack *stack_b)
 
 void	combined_rr(t_stack *stack_a, t_stack *stack_b)
 {
-	int	m;
-	int	n;
-
-	m = stack_a->size - 1;
-	n = stack_b->size - 1;
 	if (get_biggest_int(stack_a) != stack_a->numbers[0]
 		&& get_smallest_int(stack_b) != stack_b->numbers[0])
 		return (ft_rrr(stack_a, stack_b, 1));
