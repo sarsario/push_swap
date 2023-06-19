@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 17:14:01 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/19 13:58:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:02:58 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,12 @@ int	get_bigger_int(t_stack *stack, int n)
 
 int	get_smallest_bigger(t_stack *stack, int n)
 {
+	int	res;
 
+	res = get_smallest_int(stack);
+	if (n < res || n > get_biggest_int(stack))
+		return (res);
+	while (res < n)
+		res = get_bigger_int(stack, res);
+	return (res);
 }
