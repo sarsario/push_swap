@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:55:03 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/19 17:30:27 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:44:04 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,39 @@ void	rotate_top(t_stack *stack, int n, char c)
 void	efficient_pb(t_stack *stack_a, t_stack *stack_b, t_stack *lis)
 {
 	int	ra;
-	int	rra;
 	int	i;
 
 	ra = 0;
 	i = stack_a->size - 1;
 	while (int_in_stack(stack_a->numbers[i - ra], lis))
 		ra++;
-	rra = 1;
-	i = 0;
-	while (int_in_stack(stack_a->numbers[i], lis))
-	{
-		i++;
-		rra++;
-	}
-	if (ra > rra)
-		ft_rra(stack_a, rra);
-	else
-		ft_ra(stack_a, ra);
+	ft_ra(stack_a, ra);
 	ft_pb(stack_a, stack_b);
 }
+
+// void	efficient_pb(t_stack *stack_a, t_stack *stack_b, t_stack *lis)
+// {
+// 	int	ra;
+// 	int	rra;
+// 	int	i;
+
+// 	ra = 0;
+// 	i = stack_a->size - 1;
+// 	while (int_in_stack(stack_a->numbers[i - ra], lis))
+// 		ra++;
+// 	rra = 1;
+// 	i = 0;
+// 	while (int_in_stack(stack_a->numbers[i], lis))
+// 	{
+// 		i++;
+// 		rra++;
+// 	}
+// 	if (ra > rra)
+// 		ft_rra(stack_a, rra);
+// 	else
+// 		ft_ra(stack_a, ra);
+// 	ft_pb(stack_a, stack_b);
+// }
 
 void	efficient_pa(t_stack *stack_a, t_stack *stack_b, int to_push)
 {

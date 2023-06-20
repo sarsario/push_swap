@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 13:18:59 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/18 16:30:41 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:26:49 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,3 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
-
-// system("leaks push_swap");
