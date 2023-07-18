@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:34:10 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/19 19:51:45 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:56:55 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	sort_under_seven(t_stack *stack_a, t_stack *stack_b)
 			rotate_top(stack_a, get_smallest_int(stack_a), 'a');
 		ft_pb(stack_a, stack_b);
 	}
-	if (stack_b->size > 1)
+	if (stack_b->size > 0)
 		sort_six(stack_a, stack_b);
 	while (stack_b->size > 0)
 		ft_pa(stack_a, stack_b);
