@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:21:48 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/02 10:09:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:19:58 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_push(t_stack *stack, int value)
 
 int	ft_push_stack(t_stack *src, t_stack *dst)
 {
-	if (!src || !dst || !src->stack || !dst->stack || !src->size)
+	if (!src || !dst || !src->stack || !dst->stack || !(src->size))
 		return (0);
 	ft_push(dst, src->stack[src->size - 1]);
 	src->size--;
@@ -32,12 +32,12 @@ int	ft_push_stack(t_stack *src, t_stack *dst)
 
 void	ft_pa(t_stack *a, t_stack *b)
 {
-	if (ft_push_stack(b, a))
+	if (b->size > 0 && ft_push_stack(b, a))
 		ft_printf("pa\n");
 }
 
 void	ft_pb(t_stack *a, t_stack *b)
 {
-	if (ft_push_stack(a, b))
+	if (a->size > 0 && ft_push_stack(a, b))
 		ft_printf("pb\n");
 }

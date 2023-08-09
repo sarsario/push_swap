@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:07:33 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/02 10:12:34 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:23:52 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	ft_swap(t_stack *stack)
 
 void	ft_sa(t_stack *a)
 {
-	if (ft_swap(a))
+	if (a->size < 2 || ft_swap(a))
 		ft_printf("sa\n");
 }
 
 void	ft_sb(t_stack *b)
 {
-	if (ft_swap(b))
+	if (b->size < 2 || ft_swap(b))
 		ft_printf("sb\n");
 }
 
@@ -47,6 +47,4 @@ void	ft_ss(t_stack *a, t_stack *b)
 		ft_printf("sa\n");
 	else if (sb)
 		ft_printf("sb\n");
-	else
-		ft_putstr_fd("Error\nCould not perform any swap.\n", 2);
 }

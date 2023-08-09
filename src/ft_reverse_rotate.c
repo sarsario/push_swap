@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 10:16:23 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/02 10:18:01 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:21:50 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@ int	ft_reverse_rotate(t_stack *stack)
 
 void	ft_rra(t_stack *a)
 {
-	if (ft_reverse_rotate(a))
+	if (a->size < 2 || ft_reverse_rotate(a))
 		ft_printf("rra\n");
 }
 
 void	ft_rrb(t_stack *b)
 {
-	if (ft_reverse_rotate(b))
+	if (b->size < 2 || ft_reverse_rotate(b))
 		ft_printf("rrb\n");
 }
 
@@ -53,6 +53,4 @@ void	ft_rrr(t_stack *a, t_stack *b)
 		ft_printf("rra\n");
 	else if (rrb)
 		ft_printf("rrb\n");
-	else
-		ft_putstr_fd("Error\nCould not perform any reverse rotation.\n", 2);
 }
