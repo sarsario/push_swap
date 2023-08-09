@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 11:11:00 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/07 13:54:25 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/09 15:59:20 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int	main(int argc, char **argv)
 		return (ft_error());
 	if (!ft_stack_new(&b, numbers_count))
 		return (ft_free_exit(&a, &b, 1));
-	if (ft_is_sorted(&a))
-		return (0);
 	if (!ft_sort(&a, &b))
 	{
 		ft_free_exit(&a, &b, 0);
