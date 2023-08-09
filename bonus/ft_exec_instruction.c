@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 09:53:13 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/09 12:35:21 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/09 16:02:30 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,16 @@ int	ft_exec_rotate(t_stack *a, t_stack *b, char *op)
 	else if (!ft_strncmp(op, "rrb", 3))
 		return (ft_reverse_rotate(b));
 	else if (!ft_strncmp(op, "rrr", 3))
-		return (ft_reverse_rotate(a) && ft_reverse_rotate(b));
+	{
+		if (!ft_reverse_rotate(a) && !ft_reverse_rotate(b))
+			return (0);
+		return (1);
+	}
 	else if (!ft_strncmp(op, "rr", 2))
-		return (ft_rotate(a) && ft_rotate(b));
+	{
+		if (!ft_rotate(a) && !ft_rotate(b))
+			return (0);
+		return (1);
+	}
 	return (0);
 }
