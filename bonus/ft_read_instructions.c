@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:31:28 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/09 11:26:42 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/10 13:26:49 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ int	ft_read_instructions(t_stack *a, t_stack *b)
 {
 	char	*line;
 
+	line = ft_calloc(4, sizeof(char));
+	if (!line)
+		return (0);
 	while (get_next_line(0, &line))
 	{
 		if (!valid_instruction(line))
@@ -52,7 +55,9 @@ int	ft_read_instructions(t_stack *a, t_stack *b)
 			free(line);
 			return (0);
 		}
-		free(line);
+		ft_bzero(line, 4);
 	}
+	if (line)
+		free(line);
 	return (1);
 }
